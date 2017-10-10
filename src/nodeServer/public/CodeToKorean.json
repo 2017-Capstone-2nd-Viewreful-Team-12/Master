@@ -1,0 +1,1057 @@
+{
+
+	"E101": {
+		"english": "indentation contains mixed spaces and tabs",
+		"korean": "들여 쓰기에 혼합 된 공백과 탭이 있습니다."
+	},
+	"E111": {
+		"english": "indentation is not a multiple of four",
+		"korean": "들여 쓰기가 4의 배수가 아닙니다."
+	},
+	"E112": {
+		"english": "expected an indented block",
+		"korean": "들여 쓰기 된 블록을 예상했다."
+	},
+	"E113": {
+		"english": "unexpected indentation",
+		"korean": "예기치 않은 들여 쓰기"
+	},
+	"E121": {
+		"english": "continuation line under-indented for hanging indent",
+		"korean": "   들여 쓰기를 위해 들여 쓰기 된 연속 줄"
+	},
+	"E122": {
+		"english": "continuation line missing indentation or outdented",
+		"korean": "연속 선에 들여 쓰기가 누락되거나 횡령 됨"
+	},
+	"w191": {
+		"english": "indentation contains tabs",
+		"korean": "들여 쓰기에 탭이 있습니다."
+	},
+	"w503": {
+		"english": "line break occurred before a binary operator",
+		"korean": "이진 연산자 전에 줄 바꿈이 발생했습니다."
+	},
+	"w0311": {
+		"english": "bad indentation. Found %s %s, expected %s",
+		"korean": "부적절한 들여쓰기, %s %s 발견됨, 예상 %s"
+	},
+	"w0312": {
+		"english": "Found indentation with %ss instead of %ss",
+		"korean": "   %ss 대신에 %ss로 들여쓰기를 했습니다."
+	},
+	"E741": {
+		"english": "do not use variables named ‘l’, ‘O’, or ‘I’",
+		"korean": "'l', 'O'또는 'I'변수를 사용하지 마십시오."
+	},
+	"E742": {
+		"english": "do not define classes named ‘l’, ‘O’, or ‘I’",
+		"korean": "'l', 'O'또는 'I'라는 클래스를 정의하지 마십시오"
+	},
+	"E743": {
+		"english": "do not define functions named ‘l’, ‘O’, or ‘I’",
+		"korean": "'l', 'O'또는 'I'라는 함수를 정의하지 마십시오."
+	},
+	"C0102": {
+		"english": "Black listed name “%s”",
+		"korean": "블랙리스트에 포함된 이름 “%s”"
+	},
+	"C0103": {
+		"english": "Invalid “%s” name “%s”",
+		"korean": "유효하지 않은 “%s” 이름 “%s”"
+	},
+	"E114": {
+		"english": "indentation is not a multiple of four (comment)",
+		"korean": "들여 쓰기가 4의 배수가 아닙니다 (주석)."
+	},
+	"E115": {
+		"english": "expected an indented block (comment)",
+		"korean": "들여 쓰기 된 블록 예상 (주석)"
+	},
+	"E116": {
+		"english": "unexpected indentation (comment)",
+		"korean": "예기치 않은 들여 쓰기 (주석)"
+	},
+	"E261": {
+		"english": "at least two spaces before inline comment",
+		"korean": "인라인 코멘트 앞에 적어도 두 칸"
+	},
+	"E262": {
+		"english": "inline comment should start with ‘# ‘",
+		"korean": "인라인 코멘트는 '#'으로 시작해야합니다."
+	},
+	"E265": {
+		"english": "block comment should start with ‘# ‘",
+		"korean": "블록 주석은 '#'으로 시작해야합니다."
+	},
+	"E266": {
+		"english": "too many leading ‘#’ for block comment",
+		"korean": "블록 주석에 너무 많은 선도적인 '#'"
+	},
+	"C0111": {
+		"english": "Missing %s docstring",
+		"korean": "누락 된 %s의 docstring"
+	},
+	"C0112": {
+		"english": "Empty %s docstring",
+		"korean": "빈 %s의 docstring"
+	},
+	"w0410": {
+		"english": "__future__ import is not the first non docstring statement",
+		"korean": "__future__ import가 첫 번째 비 docstring 문이 아닙니다."
+	},
+	"w0511": {
+		"english": "",
+		"korean": ""
+	},
+	"E201": {
+		"english": "whitespace after ‘(‘",
+		"korean": "공백 뒤의 '('"
+	},
+	"E202": {
+		"english": "whitespace before ‘)’",
+		"korean": "공백 앞에 ')"
+	},
+	"E203": {
+		"english": "whitespace before ‘:’",
+		"korean": "':'앞의 공백"
+	},
+	"E221": {
+		"english": "whitespace before ‘(‘",
+		"korean": "공백 앞의 '('"
+	},
+	"E222": {
+		"english": "multiple spaces after operator",
+		"korean": "연산자 후 여러 공백"
+	},
+	"E223": {
+		"english": "tab before operator",
+		"korean": "탭 이전 연산자"
+	},
+	"E224": {
+		"english": "tab after operator",
+		"korean": "탭 이후 연산자"
+	},
+	"E225": {
+		"english": "missing whitespace around operator",
+		"korean": "연산자 주위의 공백 누락"
+	},
+	"E226": {
+		"english": "missing whitespace around arithmetic operator",
+		"korean": "산술 연산자 주위의 공백 누락"
+	},
+	"E227": {
+		"english": "missing whitespace around bitwise or shift operator",
+		"korean": "비트 또는 시프트 연산자 주위에 공백이 누락되었습니다."
+	},
+	"E228": {
+		"english": "missing whitespace around modulo operator",
+		"korean": "모듈러스 연산자 주위의 공백 누락"
+	},
+	"E231": {
+		"english": "missing whitespace after ‘,’, ‘;’, or ‘:’",
+		"korean": "',', ';'또는 ':'뒤에 공백이 누락되었습니다."
+	},
+	"E241": {
+		"english": "multiple spaces after ‘,’",
+		"korean": "','뒤에 여러 공백"
+	},
+	"E242": {
+		"english": "tab after ‘,’",
+		"korean": "‘,’ 뒤의 탭"
+	},
+	"E251": {
+		"english": "unexpected spaces around keyword / parameter equals",
+		"korean": "키워드 / 매개 변수와 같지 않은 예기치 않은 공백"
+	},
+	"E271": {
+		"english": "multiple spaces after keyword",
+		"korean": "키워드 뒤에 여러 공백"
+	},
+	"E272": {
+		"english": "multiple spaces before keyword",
+		"korean": "키워드 앞에 여러 공백"
+	},
+	"E273": {
+		"english": "tab after keyword",
+		"korean": "키워드 다음의 탭"
+	},
+	"E274": {
+		"english": "tab before keyword",
+		"korean": "키워드 앞에 탭"
+	},
+	"E275": {
+		"english": "missing whitespace after keyword",
+		"korean": "키워드 뒤에 공백이 누락되었습니다."
+	},
+	"E301": {
+		"english": "expected 1 blank line, found 0",
+		"korean": "   예상 된 빈 줄 1 개, 찾음 0"
+	},
+	"E302": {
+		"english": "expected 2 blank lines, found 0",
+		"korean": "예상 된 빈 줄 2 개, 찾음 0"
+	},
+	"E303": {
+		"english": "too many blank lines (3)",
+		"korean": "너무 많은 빈 줄 (3)"
+	},
+	"E304": {
+		"english": "blank lines found after function decorator",
+		"korean": "함수 장식 자 다음에 빈 줄이 발견되었습니다."
+	},
+	"E305": {
+		"english": "expected 2 blank lines after end of function or class",
+		"korean": "함수 나 클래스가 끝난 후 2 개의 빈 줄이 있어야합니다."
+	},
+	"E306": {
+		"english": "expected 1 blank line before a nested definition",
+		"korean": "중첩 된 정의 앞에 빈 행이 1 개 있어야합니다."
+	},
+	"W293": {
+		"english": "blank line contains whitespace",
+		"korean": "빈 줄에는 공백이 들어 있습니다."
+	},
+	"W291": {
+		"english": "trailing whitespace",
+		"korean": "후행 공백"
+	},
+	"W292": {
+		"english": "no newline at end of file",
+		"korean": "파일 끝에 줄 바꿈이 없다."
+	},
+	"W391": {
+		"english": "blank line at end of file",
+		"korean": "파일 끝의 빈 줄"
+	},
+	"C0303": {
+		"english": "Trailing whitespace",
+		"korean": "뒤 공백"
+	},
+	"C0304": {
+		"english": "Final newline missing",
+		"korean": "마지막 개행 문자 누락"
+	},
+	"C0322": {
+		"english": "Old: Operator not preceded by a space",
+		"korean": "연산자 앞에 공백이 없습니다."
+	},
+	"C0323": {
+		"english": "Old: Operator not followed by a space",
+		"korean": "연산자 뒤에 공백이 없습니다."
+	},
+	"C0324": {
+		"english": "Old: comma not followed by a space",
+		"korean": "콤마 뒤 공백이 없다."
+	},
+	"C0326": {
+		"english": "%s space %s %s %s\n %s",
+		"korean": "% s 공간 % s % s % s \n % s "
+	},
+	"E123": {
+		"english": "closing bracket does not match indentation of opening bracket’s line",
+		"korean": "닫는 브래킷이 여는 브래킷의 선의 들여 쓰기와 일치하지 않습니다."
+	},
+	"E124": {
+		"english": "closing bracket does not match visual indentation",
+		"korean": "닫는 대괄호가 시각적 인 들여 쓰기와 일치하지 않습니다."
+	},
+	"E125": {
+		"english": "continuation line with same indent as next logical line",
+		"korean": "다음 논리 줄과 같은 들여 쓰기가 있는 연속 줄"
+	},
+	"E126": {
+		"english": "continuation line over-indented for hanging indent",
+		"korean": "들여 쓰기를 위해 계속 들여 쓰기 되는 연속 선"
+	},
+	"E127": {
+		"english": "continuation line over-indented for visual indent",
+		"korean": "시각적 들여 쓰기를 위해 연속 줄을 들여 쓰기"
+	},
+	"E128": {
+		"english": "continuation line under-indented for visual indent",
+		"korean": "시각적 들여 쓰기를 위해 아래 줄 들여 쓰기 된 연속 줄"
+	},
+	"E129": {
+		"english": "visually indented line with same indent as next logical line",
+		"korean": "다음 논리적 선과 같은 들여 쓰기가있는 시각적으로 들여 쓰기 된 선"
+	},
+	"E131": {
+		"english": "continuation line unaligned for hanging indent",
+		"korean": "들여 쓰기를 위해 정렬되지 않은 연속 선"
+	},
+	"E133": {
+		"english": "closing bracket is missing indentation",
+		"korean": "닫는 대괄호에 들여 쓰기가 없습니다."
+	},
+	"E401": {
+		"english": "multiple imports on one line",
+		"korean": "한 줄에 여러 개의 가져 오기"
+	},
+	"E402": {
+		"english": "module level import not at top of file",
+		"korean": "모듈 수준의 가져 오기가 파일의 맨 위에 없습니다."
+	},
+	"E501": {
+		"english": "line too long (82 > 79 characters)",
+		"korean": "줄이 너무 깁니다 (82> 79 자)."
+	},
+	"E502": {
+		"english": "the backslash is redundant between brackets",
+		"korean": "괄호 사이에 백 슬래시가 중복됩니다."
+	},
+	"E701": {
+		"english": "multiple statements on one line (colon)",
+		"korean": "한 줄로 된 여러 문장 (콜론)"
+	},
+	"E702": {
+		"english": "multiple statements on one line (semicolon)",
+		"korean": "한 줄로 된 여러 문장 (세미콜론)"
+	},
+	"E703": {
+		"english": "statement ends with a semicolon",
+		"korean": "문장이 세미콜론으로 끝납니다."
+	},
+	"E711": {
+		"english": "comparison to None should be ‘if cond is None:’",
+		"korean": "None과의 비교는 'cond가 None이면'이어야합니다."
+	},
+	"E712": {
+		"english": "comparison to True should be ‘if cond is True:’ or ‘if cond:’",
+		"korean": "True와의 비교는 'cond가 참인 경우'여야합니다 : '또는'if cond : '"
+	},
+	"E713": {
+		"english": "test for membership should be ‘not in’",
+		"korean": "회원 자격 시험은 'not in'이어야합니다"
+	},
+	"E714": {
+		"english": "test for object identity should be ‘is not’",
+		"korean": "객체 신원에 대한 테스트는 'is not'이어야합니다."
+	},
+	"E721": {
+		"english": "do not compare types, use ‘isinstance()’",
+		"korean": "유형을 비교하지 말고 'isinstance ()'를 사용하십시오"
+	},
+	"E722": {
+		"english": "do not use bare except, specify exception instead",
+		"korean": "노출 된 예외를 사용하지 말고 대신 예외를 지정하십시오."
+	},
+	"E731": {
+		"english": "do not assign a lambda expression, use a def",
+		"korean": "람다 식을 지정하지 마십시오. def를 사용하십시오."
+	},
+	"W601": {
+		"english": ".has_key() is deprecated, use ‘in’",
+		"korean": ".has_key ()는 더 이상 사용되지 않으며, 'in'"
+	},
+	"W602": {
+		"english": "deprecated form of raising exception",
+		"korean": "사용되지 않는 예외 양식"
+	},
+	"W603": {
+		"english": "‘<>’ is deprecated, use ‘!=’",
+		"korean": "'<>'은 (는) 사용되지 않으므로 '! ='"
+	},
+	"W604": {
+		"english": "backticks are deprecated, use ‘repr()’",
+		"korean": "backticks는 사용되지 않으며 'repr ()'을 사용하십시오."
+	},
+	"C0301": {
+		"english": "Line too long (%s/%s)",
+		"korean": "줄이 너무 깁니다 (% s / % s)."
+	},
+	"C0302": {
+		"english": "Too many lines in module(%s)",
+		"korean": "모듈 (% s)에 행이 너무 많습니다."
+	},
+	"C0321": {
+		"english": "More than one statement on a single line",
+		"korean": "단일 행에 둘 이상의 명령문"
+	},
+	"C0325": {
+		"english": "Unnecessary parens after %r keyword.",
+		"korean": "% r 키워드 뒤에 불필요한 괄호가 있습니다."
+	},
+	"C1001": {
+		"english": "Old-style class defined",
+		"korean": "이전 스타일의 클래스 정의"
+	},
+	"W0301": {
+		"english": "Unnecessary semicolon.",
+		"korean": "불필요한 세미콜론."
+	},
+	"E0102": {
+		"english": "%s already defined line %s",
+		"korean": "%s가 이미 라인 %s 에서 정의됬다."
+	},
+	"E0103": {
+		"english": "%r not properly in loop",
+		"korean": "%r은 루프에서 적절치 않다."
+	},
+	"E0501": {
+		"english": "Old : Non ascii characters found but no encoding specified (pep 263)",
+		"korean": "Old : 비 아스키 문자가 발견되었지만 인코딩이 지정되지 않았습니다."
+	},
+	"E0502": {
+		"english": "Old: Wrong encoding specified (%s)",
+		"korean": "Old : 잘못된 인코딩이 지정되었습니다. (%s)"
+	},
+	"E0503": {
+		"english": "Old : Unknown encoding specified (%s)",
+		"korean": "알 수 없는 인코딩이 지정되었습니다.(%s)"
+	},
+	"E0601": {
+		"english": "Using variable %r before assignment",
+		"korean": "할당 전에 변수 %r 사용"
+	},
+	"E0602": {
+		"english": "Undefined variable %r",
+		"korean": "정의되지 않은 변수 %r"
+	},
+	"E0603": {
+		"english": "Undefined variable name %r in __all__",
+		"korean": "__all__에서 정의되지 않은 변수 이름 % r"
+	},
+	"E0604": {
+		"english": " Invalid object %r in __all__, must contain only strings",
+		"korean": "__all__에서 유효하지 않은 개체 % r은 (는) 문자열 만 포함해야합니다."
+	},
+
+	"E0701": {
+		"english": "Bad except clauses order (%s)",
+		"korean": "잘못된 예외 조항(%s)"
+	},
+	"E0702": {
+		"english": "Raising %s while only classes, instances or string are allowed.",
+		"korean": "오직 클래스, 인스턴스, 스트링이 허용되는 동안 %s 사용."
+	},
+	"E0711": {
+		"english": "Not Implemented raised - should raise Not Implemented Error",
+		"korean": "구현되지 않음 - 구현되지 않은 오류를 발생시켜야 함"
+	},
+	"E1101": {
+		"english": "%s %r has no %r member.",
+		"korean": "존재하지 않는 멤버에 대해 객체(변수,함수,…)에 엑세스 할 때 사용됩니다."
+	},
+	"E1102": {
+		"english": "%s is not callable",
+		"korean": "%s를 호출 할 수 없습니다."
+	},
+	"E1103": {
+		"english": "%s %r has no %r member (but some types could not be inferred)",
+		"korean": "%s %r에는 %r 멤버가 없습니다.(그러나 몇가지 경우 유추할 수 없습니다.)"
+	},
+	"E1200": {
+		"english": "Unsupported logging format character %r (%#02x) at index %d",
+		"korean": "인덱스 % d에서 지원되지 않는 로깅 형식 문자 % r (% # 02x)"
+	},
+	"E1201": {
+		"english": "Logging format string ends in middle of conversion specifier",
+		"korean": "로깅 형식 문자열이 변환 지정자 중간에서 끝납니다."
+	},
+	"E1205": {
+		"english": "Too many arguments for logging format string",
+		"korean": "로깅 형식 문자열에 대한 인수가 너무 많습니다."
+	},
+	"E1206": {
+		"english": "Not enough arguments for logging format string",
+		"korean": "로깅 형식 문자열에 대한 인수가 충분하지 않습니다."
+	},
+	"E1300": {
+		"english": "Unsupported format character %r (%#02x) at index %d",
+		"korean": "인덱스 % d에서 지원되지 않는 형식 문자 % r (% # 02x)"
+	},
+	"E1301": {
+		"english": "Format string ends in middle of conversion specifier",
+		"korean": "형식 문자열은 변환 지정자의 중간에서 끝납니다."
+	},
+	"E1302": {
+		"english": "Mixing named and unnamed conversion specifiers in format string",
+		"korean": "형식 문자열에서 명명 된 변환 지정자와 명명되지 않은 변환 지정자 혼합"
+	},
+	"E1303": {
+		"english": "Expected mapping for format string, not %s",
+		"korean": "% s이 (가) 아닌 형식 문자열에 대해 예상되는 매핑입니다."
+	},
+	"E1304": {
+		"english": "Missing key %r in format string dictionary",
+		"korean": "형식 문자열 사전에서 누락 키 % r"
+	},
+	"E1305": {
+		"english": "used when a format string that uses named conversion specifiers is given too many arguments.",
+		"korean": "명명되지 않은 변환 지정자를 사용하는 형식 문자열에 인수가 너무 많을 때 사용됩니다."
+	},
+	"E1306": {
+		"english": "Used when a format string that uses unnamed conversion specifiers is given too few arguments",
+		"korean": "이름없는 변환 지정자를 사용하는 형식문자열의 인수가 너무 적을 때 사용됩니다."
+	},
+	"F0004": {
+		"english": "unexpected inferred value %s",
+		"korean": "예상치 못한 추측 된 값 %s"
+	},
+	"F0010": {
+		"english": "error while code parsing: %s",
+		"korean": "코드를 구문 분석하는 동안 오류가 발생했습니다 : % s"
+	},
+	"R0801": {
+		"english": "Similar lines in %s files",
+		"korean": "% s 파일의 유사한 행"
+	},
+	"R0911": {
+		"english": "Too many return statements (%s/%s)",
+		"korean": "너무 많은 return 문 (% s / % s)"
+	},
+	"R0912": {
+		"english": "Too many branches (%s/%s)",
+		"korean": "너무 많은 브랜치 (% s / % s)"
+	},
+	"R0913": {
+		"english": "Too many arguments (%s/%s)",
+		"korean": "인수가 너무 많습니다 (% s / % s)."
+	},
+	"R0914": {
+		"english": "Too many local variables (%s/%s)",
+		"korean": "지역변수가 너무 많습니다."
+	},
+	"R0915": {
+		"english": "Too many statements (%s/%s)",
+		"korean": "너무 많은 문장 (% s / % s)"
+	},
+	"W0101": {
+		"english": "Unreachable code",
+		"korean": "연결 할 수 없는 코드"
+	},
+	"W0102": {
+		"english": "Dangerous default value %s as argument",
+		"korean": "   위험한 기본값 %s를 인수로 사용."
+	},
+	"W0104": {
+		"english": "statement seems to have no effect.",
+		"korean": "문장은 아무 효과가 없는 것처럼 보인다"
+	},
+	"W0105": {
+		"english": "String statement has no effect.",
+		"korean": "문자열 문장은 아무 효과가 없습니다."
+	},
+	"W0106": {
+		"english": "Expression %s is assigned to nothing",
+		"korean": "표현식 %s이 (가) 아무것도 할당되지 않았습니다."
+	},
+	"W0107": {
+		"english": "Unnecessary pass statement",
+		"korean": "불필요한 pass문"
+	},
+	"W0108": {
+		"english": "Lambda may not be necessary",
+		"korean": "람다는 필요하지 않을 수 도 있다."
+	},
+	"W0109": {
+		"english": "Duplicate key %r in dictionary",
+		"korean": "사전에서 중복된 키"
+	},
+	"W0110": {
+		"english": "map/filter on lambda could be replaced by comprehension",
+		"korean": "람다의 지도/필터를 이해력으로 바꿀 수 있음"
+	},
+	"W0120": {
+		"english": "Else clause on loop without a break statement",
+		"korean": "break문 없는 루프의 Else 절"
+	},
+	"W0150": {
+		"english": "%s statement in finally block may swallow exception",
+		"korean": "finally 블록의 % s 명령문이 예외를 삼킬 수도 있습니다."
+	},
+	"W0199": {
+		"english": "Assert called on a 2-uple. Did you mean 'assert x,y'?",
+		"korean": "Assert는 2-uple에서 호출되었습니다. 'assert x, y'를 원하셨습니까?"
+	},
+	"W0234": {
+		"english": "iter returns non-iterator",
+		"korean": "반복자가 아닌 반복자를 반환합니다."
+	},
+	"W0331": {
+		"english": "Use of the <> operator",
+		"korean": "<> 연산자 사용"
+	},
+	"W0332": {
+		"english": "Use of l as long integer identifier",
+		"korean": "   긴 정수 식별자로 l사용"
+	},
+	"W0333": {
+		"english": "Use of the `` operator",
+		"korean": "``연산자의 사용"
+	},
+	"W0512": {
+		"english": "Cannot decode using encoding %s, unexpected byte at position %d",
+		"korean": "인코딩 %s을 (를) 사용하여 디코딩 할 수 없습니다. % d 위치의 예상치 못한 바이트"
+	},
+	"W0601": {
+		"english": "Global variable %r undefined at the module level",
+		"korean": "모듈 수준에서 전역 변수 % r이 정의되지 않았습니다."
+	},
+	"W0602": {
+		"english": "Using global for %r but no assignment is done",
+		"korean": "% r에 대해 전역을 사용하지만 할당이 수행되지 않았습니다."
+	},
+	"W0603": {
+		"english": "Using the global statement",
+		"korean": "전역 명령문 사용"
+	},
+	"W0604": {
+		"english": "Using the global statement at the module level",
+		"korean": "모듈 수준에서 전역 명령문 사용"
+	},
+	"W0612": {
+		"english": "Unused variable %r",
+		"korean": "사용되지 않은 변수 % r"
+	},
+	"W0621": {
+		"english": "Redefining name %r from outer scope (line %s)",
+		"korean": "외부 범위 (% s 줄)에서 이름 % r을 재정의합니다."
+	},
+	"W0622": {
+		"english": "Redefining built-in %r",
+		"korean": "내장 된 % r 재정의"
+	},
+	"W0623": {
+		"english": "Redefining name %r from %s in exception handler",
+		"korean": "예외 핸들러에서 이름 % r을 % s에서 재정의"
+	},
+	"W0631": {
+		"english": "Using possibly undefined loop variable %r",
+		"korean": "가능하지 않은 루프 변수 % r 사용"
+	},
+	"W0632": {
+		"english": "Possible unbalanced tuple unpacking with sequence%s: …",
+		"korean": "시퀀스 % s로 언 패 런스 튜플 압축 풀기 가능 : ..."
+	},
+	"W0701": {
+		"english": "Raising a string exception",
+		"korean": "문자열 예외 발생시키기"
+	},
+	"W0702": {
+		"english": "No exception type(s) specified",
+		"korean": "예외 유형이 지정되지 않았습니다."
+	},
+	"W0703": {
+		"english": "Catching too general exception %s",
+		"korean": "너무 일반적인 예외 % s 잡기"
+	},
+	"W0704": {
+		"english": "Except doesn't do anything",
+		"korean": "예외가 아무것도 하지 않는다."
+	},
+	"W0710": {
+		"english": "Exception doesn't inherit from standard Exception class",
+		"korean": "Exception은 표준 Exception클래스에서 상속받지 않습니다."
+	},
+	"W0711": {
+		"english": "Exception to catch is the result of a binary %s operation",
+		"korean": "catch 할 예외는 이진 %s작업의 결과입니다"
+	},
+	"W0712": {
+		"english": "Implicit unpacking of exceptions is not supported in Python 3",
+		"korean": "Python 3에서는 예외의 함축적 인 언 패킹이 지원되지 않습니다"
+	},
+	"W1201": {
+		"english": "Specify string format arguments as logging function parameters",
+		"korean": "로깅 함수 매개 변수로 문자열 형식 인수 지정"
+	},
+	"W1300": {
+		"english": " Format string dictionary key should be a string, not %s",
+		"korean": "형식 문자열 사전 키는 % s가 아닌 문자열이어야합니다."
+	},
+	"W1301": {
+		"english": " Unused key %r in format string dictionary",
+		"korean": "형식 문자열 사전에서 사용되지 않은 키 % r"
+	},
+
+	"W1401": {
+		"english": "Anomalous backslash in string: '%s'. String constant might be missing an r prefix.",
+		"korean": "문자열의 변칙적 인 백 슬래시 : '% s'. 문자열 상수에 r 접두어가 누락되었을 수 있습니다."
+	},
+	"W1402": {
+		"english": "Anomalous Unicode escape in byte string: '%s'. String constant might be missing an r or u prefix.",
+		"korean": "비정상적인 유니 코드 이스케이프가 바이트 문자열 '% s'에 있습니다. 문자열 상수에 r 또는 u 접두어가 누락되었을 수 있습니다."
+	},
+	"W1501": {
+		"english": "%s is not a valid mode for open.",
+		"korean": "% s은 (는) 유효한 열기 모드가 아닙니다."
+	},
+	"E0104": {
+		"english": "Return outside function",
+		"korean": "외부 함수 반환"
+	},
+	"E0105": {
+		"english": "Yield outside function",
+		"korean": "외부 함수 출력"
+	},
+	"E0106": {
+		"english": "Return with argument inside generator.",
+		"korean": "인수를 generator 내부에서 반환했다."
+	},
+	"E0108": {
+		"english": "Duplicate argument name %s in function definition",
+		"korean": "함수 정의에서 argument 이름이 중복."
+	},
+	"E1111": {
+		"english": "Assigning to function call which doesn’t return.",
+		"korean": "반환하지 않은 함수호출 할당."
+	},
+	"E1120": {
+		"english": "No value passed for parameter %s in function call",
+		"korean": "함수 호출에서 매개 변수 % s에 대해 전달 된 값이 없습니다"
+	},
+	"E1121": {
+		"english": "Too many positional arguments for function call",
+		"korean": "함수 호출에 너무 많은 위치 인수"
+	},
+	"E1122": {
+		"english": "Old: Duplicate keyword argument %r in function call",
+		"korean": "Old : 함수 호출에서 중복 키워드 인수 % r"
+	},
+	"E1123": {
+		"english": " Passing unexpected keyword argument %r in function call",
+		"korean": "함수 호출에서 예상치 못한 키워드 인수 % r 전달"
+	},
+	"E1124": {
+		"english": "Parameter %r passed as both positional and keyword argument",
+		"korean": "매개 변수 % r은 위치 및 키워드 인수로 전달되었습니다."
+	},
+	"E1125": {
+		"english": "Old: Missing mandatory keyword argument %r",
+		"korean": "Old : 누락 된 필수 키워드 인수 % r"
+	},
+	"W0141": {
+		"english": "used built in function %r",
+		"korean": "사용된 내장 함수 %r"
+	},
+	"W0142": {
+		"english": "used * or ** magic",
+		"korean": "* 또는 ** 마법 사용."
+	},
+	"W0613": {
+		"english": "Unused argument %r",
+		"korean": "사용되지 않은 인수 %r"
+	},
+	"W1111": {
+		"english": "Assigning to function call which only returns None.",
+		"korean": "할당된 함수 호출이 None만 반환함."
+	},
+	"E0100": {
+		"english": "__init__method is a generator",
+		"korean": "__init__메소드는 Generator입니다."
+	},
+	"E0101": {
+		"english": "Explicit return in __init__",
+		"korean": "__init__에서 명시적으로 반환"
+	},
+	"E0202": {
+		"english": "An attribute affected in %s line %s hide this method.",
+		"korean": "%s 행 %s에서 영향을 받은 속성이 이 메소드를 숨깁니다."
+	},
+	"E0203": {
+		"english": "Access to member %r before its definition line %s",
+		"korean": "line %s에서 정의 전 멤버 %r에 대한 접근."
+	},
+	"E0211": {
+		"english": "Method has no argument.",
+		"korean": "메소드에 인수가 없습니다."
+	},
+	"E0213": {
+		"english": "Method should have “self” as first argument.",
+		"korean": "Method는 첫 번째 인수로 “self”를 가져야합니다."
+	},
+	"E0221": {
+		"english": "Interface resolved to %s is not a class.",
+		"korean": "%s로 해결된 인터페이스는 클래스가 아닙니다."
+	},
+	"E0222": {
+		"english": "Missing method %r from %s interface",
+		"korean": "%s 인터페이스에서 %r메소드가 누락 되었습니다."
+	},
+	"E0235": {
+		"english": "__exit__ must accept 3 arguments: type, value, traceback",
+		"korean": "__exit__ 는 3개의 인수를 받아야 합니다. Type, value, traceback."
+	},
+	"E0710": {
+		"english": "Raising a new style class which doesn’t inherit from BaseException.",
+		"korean": "BaseException을 상속받지 않는 새로운 스타일 클래스를 발생시킵니다."
+	},
+	"E0712": {
+		"english": "Catching an exception which doesn't inherit from BaseException: %s",
+		"korean": "BaseException을 상속받지 않는 예외 잡기 : % s"
+	},
+	"E1001": {
+		"english": "Use of __slots__ on an old style class",
+		"korean": "이전 스타일 클래스에서 __slots__ 사용."
+	},
+	"E1002": {
+		"english": "Use of super on an old style class",
+		"korean": "이전 스타일의 슈퍼 클래스 사용."
+	},
+	"E1003": {
+		"english": "Bad first argument %r given to super()",
+		"korean": "super()에 주어진 첫 번째 인수 %r이 잘못되었습니다."
+	},
+	"E1004": {
+		"english": "Missing argument to super()",
+		"korean": "super ()에 대한 인수가 없습니다."
+	},
+	"E1310": {
+		"english": "Suspicious argument in %s.%s call",
+		"korean": "% s. % s 호출의 의심스러운 인수"
+	},
+	"F0202": {
+		"english": "Unable to check methods signature (%s/ %s)",
+		"korean": "메소드 서명(%s/%s)를 확인할 수 없습니다."
+	},
+	"F0220": {
+		"english": "failed to resolve interface implemented by %s (%s)",
+		"korean": "%s (%s)에 의해 구현 된 인터페이스를 해결하지 못했습니다."
+	},
+	"R0201": {
+		"english": "Method could be a function",
+		"korean": "메소드는 함수가 될 수 있습니다."
+	},
+	"R0901": {
+		"english": "Too many ancestors (%s/%s)",
+		"korean": "조상이 너무 많습니다 (% s / % s)."
+	},
+	"R0902": {
+		"english": "Too many instance attributes (%s/%s)",
+		"korean": "인스턴스 속성이 너무 많습니다 (% s / % s)."
+	},
+	"R0903": {
+		"english": "Too few public methods (%s/%s)",
+		"korean": "공개 메소드가 너무 적습니다 (% s / % s)."
+	},
+	"R0904": {
+		"english": "Too many public methods (%s/%s)",
+		"korean": "공개 메소드가 너무 많습니다 (% s / % s)."
+	},
+	"R0921": {
+		"english": "Abstract class not referenced",
+		"korean": "참조되지 않은 추상 클래스"
+	},
+	"R0922": {
+		"english": "Abstract class is only referenced %s times",
+		"korean": "추상 클래스는 % s 번만 참조되었습니다."
+	},
+	"R0923": {
+		"english": "Interface not implanted.",
+		"korean": "구현되지 않은 인터페이스."
+	},
+	"W0121": {
+		"english": "Use raise ErrorClass(args) instead of raise ErrorClass, args.",
+		"korean": "raise ErrorClass, args 대신 raise ErrorClass (args)를 사용하십시오"
+	},
+	"W0122": {
+		"english": "use of exec",
+		"korean": "exec 사용"
+	},
+	"W0201": {
+		"english": "Attribute %r defined outside __init__",
+		"korean": "속성 %r이 __init__ 외부에서 정의됨.;"
+	},
+	"W0211": {
+		"english": "Static method with %r as first argument.",
+		"korean": "%r을 첫 번째 인수로 사용하는 정적 매소드입니다."
+	},
+	"W0212": {
+		"english": "Acess to a protected member %s of a client class",
+		"korean": "클라이언트 클래스의 보호 된 멤버 % s에 대한 액세스"
+	},
+	"W0221": {
+		"english": "Arguments number differs from %s method",
+		"korean": "인수 번호가 % s 메서드와 다릅니다."
+	},
+	"W0222": {
+		"english": "Signature differs from %s method",
+		"korean": "시그니처가 % s 메소드와 다릅니다."
+	},
+	"W0223": {
+		"english": "Method %r is abstract in class %r but is not overridden",
+		"korean": "% r 메서드에서 % r 메서드는 추상 처리를하지만 오버라이드되지 않습니다."
+	},
+	"W0231": {
+		"english": "__init__ method from base class %r is not called",
+		"korean": "기본 클래스 % r의 __init__ 메소드가 호출되지 않았습니다."
+	},
+	"W0232": {
+		"english": "Class has no __init__ method",
+		"korean": "클래스에는 __init__ 메소드가 없습니다."
+	},
+	"W0233": {
+		"english": "__init__ method from a non direct base class %r is called",
+		"korean": "비 직접적인 기본 클래스 % r의 __init__ 메소드가 호출되었습니다."
+	},
+	"W1001": {
+		"english": "Use of property on an old style class",
+		"korean": "구식 클래스에서 속성사용"
+	},
+	"C0121": {
+		"english": "Missing required attribute %s",
+		"korean": "누락 된 필수 속성 %”"
+	},
+	"E0001": {
+		"english": "(syntax error raised for a module; message varies)",
+		"korean": "(모듈에 대해 구문 오류가 발생했으며 메시지가 다양합니다)"
+	},
+	"E0611": {
+		"english": "No name %r in module %r",
+		"korean": "% r 모듈에 이름이 없습니다"
+	},
+	"F0003": {
+		"english": "ignored builtin module %s",
+		"korean": "내장 모듈 % s 무시"
+	},
+	"F0401": {
+		"english": "Unable to import %s",
+		"korean": "% s을 가져올 수 없습니다."
+	},
+	"R0401": {
+		"english": "Cyclic import (%s)",
+		"korean": "순환 가져 오기 (% s)"
+	},
+	"W0401": {
+		"english": "Wildcard import %s",
+		"korean": "와일드 카드 가져 오기 % s"
+	},
+	"W0402": {
+		"english": "Uses of a deprecated module %r",
+		"korean": "사용되지 않는 모듈 % r의 사용"
+	},
+	"W0403": {
+		"english": "Relative import %r, should be %r",
+		"korean": "상대적인 import % r, % r이어야합니다."
+	},
+	"W0404": {
+		"english": "Reimport %r (imported line %s)",
+		"korean": "% r (가져온 라인 % s)을 다시 가져옵니다."
+	},
+	"W0406": {
+		"english": "Module import itself",
+		"korean": "모듈 가져 오기 자체"
+	},
+	"W0611": {
+		"english": "Unused import %s",
+		"korean": "사용하지 않은 가져 오기 % s"
+	},
+	"W0614": {
+		"english": "Unused import %s from wildcard import",
+		"korean": "와일드 카드 가져 오기에서 사용되지 않은 가져 오기 % s"
+	},
+	"E901": {
+		"english": "SyntaxError or IndentationError",
+		"korean": "SyntaxError 또는 IndentationError"
+	},
+	"E902": {
+		"english": "IOError",
+		"korean": "IO에러"
+	},
+	"C0202": {
+		"english": "Class method %s should have cls as first argument",
+		"korean": "클래스 메소드 % s에 첫 번째 인수로 cls가 있어야합니다."
+	},
+	"C0203": {
+		"english": "Metaclass method %s should have mcs as first argument",
+		"korean": "메타 클래스 메서드 % s의 첫 번째 인수는 mcs 여야합니다."
+	},
+	"C0204": {
+		"english": "Metaclass class method %s should have %s as first argument",
+		"korean": "메타 클래스 클래스 메서드 % s에 첫 번째 인수로 % s이 (가) 있어야합니다."
+	},
+	"E0011": {
+		"english": "Unrecognized file option %r",
+		"korean": "인식 할 수없는 파일 옵션 % r"
+	},
+	"E0012": {
+		"english": "Bad option value %r",
+		"korean": "잘못된 옵션 값 % r"
+	},
+	"F0001": {
+		"english": "(error prevented analysis; message varies)",
+		"korean": "(오류 방지 분석, 메시지가 다양 함)"
+	},
+	"F0002": {
+		"english": "%s: %s (message varies)",
+		"korean": "%s: %s(메시지가 다릅니다)"
+	},
+	"F0321": {
+		"english": "Format detection error in %r",
+		"korean": "% r의 형식 감지 오류"
+	},
+	"I0001": {
+		"english": "Unable to run raw checkers on built-in module %s",
+		"korean": "내장 모듈 % s에서 원시 체커를 실행할 수 없습니다"
+	},
+	"I0010": {
+		"english": "Unable to consider inline option %r",
+		"korean": "인라인 옵션 % r을 (를) 고려할 수 없습니다."
+	},
+	"I0011": {
+		"english": "Locally disabling %s",
+		"korean": "% s을 (를) 로컬에서 비활성화"
+	},
+	"I0012": {
+		"english": "Locally enabling %s",
+		"korean": "로컬에서 % s 활성화"
+	},
+	"I0013": {
+		"english": "Ignoring entire file",
+		"korean": "전체 파일 무시"
+	},
+	"I0014": {
+		"english": "Used deprecated directive pylint:disable-all or pylint:disable=all",
+		"korean": "더 이상 사용되지 않는 pragma pylint : disable-msg또는 pylint : enable-msg"
+	},
+	"I0020": {
+		"english": "Suppressed %s (from line %d)",
+		"korean": "억제된 % s (라인 % d에서)"
+	},
+	"I0021": {
+		"english": "Useless suppression of %s",
+		"korean": "% s의 쓸모없는 억제"
+	},
+	"I0022": {
+		"english": "Deprecated pragma pylint:disable-msg or pylint:enable-msg",
+		"korean": "더 이상 사용되지 않는 pragma pylint : disable-msg또는 pylint : enable-msg"
+	},
+	"RP0001": {
+		"english": "Messages by category",
+		"korean": "카테고리 별 메시지"
+	},
+	"RP0002": {
+		"english": "% errors / warnings by module",
+		"korean": "모듈 별 오류 / 경고 수"
+	},
+	"RP0003": {
+		"english": "Messages",
+		"korean": "메시지"
+	},
+	"RP0004": {
+		"english": "Global evaluation",
+		"korean": "글로벌 평가"
+	},
+	"RP0101": {
+		"english": "Statistics by type",
+		"korean": "유형별 통계"
+	},
+	"RP0401": {
+		"english": "External dependencies",
+		"korean": "외부 의존성"
+	},
+	"RP0402": {
+		"english": "Modules dependencies graph",
+		"korean": "모듈 종속성 그래프"
+	},
+	"RP0701": {
+		"english": "Raw metrics",
+		"korean": "원시 측정 항목"
+	},
+	"RP0801": {
+		"english": "Duplication",
+		"korean": "중복된"
+	}
+}

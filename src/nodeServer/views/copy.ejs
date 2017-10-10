@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>Viewreful </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+ 
+  <script type="text/javascript" src="./stylesheets/js/shCore.js"></script>
+  <script type="text/javascript" src="./stylesheets/js/shLegacy.js"></script>
+  <script type="text/javascript" src="./stylesheets/js/shBrushBash.js"></script>
+  <script type="text/javascript" src="./stylesheets/js/shBrushCSharp.js"></script>
+  <script type="text/javascript" src="./stylesheets/js/shBrushCss.js"></script>
+  <script type="text/javascript" src="./stylesheets/js/shBrushGroovy.js"></script>
+  <script type="text/javascript" src="./stylesheets/js/shBrushPython.js"></script>
+  <script type="text/javascript" src="./stylesheets/js/shBrushPlain.js"></script>
+
+  <link rel=stylesheet type=text/css href="./stylesheets/css/shCore.css">
+  <link rel=stylesheet type=text/css href="./stylesheets/css/shThemeRDark.css">
+  <link rel=stylesheet type=text/css href="./stylesheets/css/style.css">
+  <style type="text/css">
+  .container:before{
+	content:""!important
+  }
+  .container{
+	width:1500px;
+  }
+  </style>
+  <script type="text/javascript">
+	  SyntaxHighlighter.defaults['toolbar'] = false;
+	  SyntaxHighlighter.all();
+  </script>
+
+  <script type="text/javascript">
+        var obj = <%- JSON.stringify(FilterArray) %> 
+        var sortObj = [];
+        for(var key in obj){
+                sortObj.push([key,obj[key]]);
+        }
+        sortObj.sort(function(a,b){
+                return b[1].count - a[1].count;
+        });
+
+	function show_hide_row(row)
+	{
+	 $("#"+row).toggle();
+	}
+	
+  </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid" >
+    <div class="navbar-header">
+      <a class="navbar-brand">Viewreful</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h3><span class="glyphicon glyphicon-folder-open"></span>  Python-Test</h3>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Issues</a></li>
+    <li><a data-toggle="tab" href="#code">Code</a></li>
+    <li><a data-toggle="tab" href="#graph">Graph</a></li>
+    <p class="text-right"><script language="JavaScript"> 
+		var today = new Date( ) 
+		document.write(today.getFullYear( ) , "." , 
+		today.getMonth( )+1 , "." , today.getDate( ) , ".") 
+		</script>  | <span class="glyphicon glyphicon-calendar"></span></p>
+  </ul>
+
+  <div class="container">
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <div class="row">
+          <div class="col-sm-8">
+            <h4>Filtering & Sorting</h4>
+            <div class="well" style="height:300px;overflow:auto">
+	     <table class="table">
+              <thead>
+		<tr>
+		 <th>#</th>
+                 <th>Issue</th>
+                 <th>Count</th>
+		 <th>Description</th>
+		</tr>
+	      </thead>
+	      <tbody>
+                <% for(var i=1;i<=FilterArrayLength-1;i++) {%>
+                <tr>
+                 <td id="#"><%=i%></td>
+                 <td id="issue"><script>document.write(sortObj[<%=i %>-1][1].id)</script></td>
+                 <td id="count"><script>document.write(sortObj[<%=i %>-1][1].count)</script></td>
+                 <td id="description"><script>document.write(sortObj[<%=i %>-1][1].korean)</script></td>
+                </tr>
+		<% } %>
+	      </tbody>
+             </table>
+            </div>
+	    <form id="copyCheck" method="post" action="/CopyCheck2" value="<script>location.href</script>">
+    <h4>CopyCheck    <input type="image" name="color" src="./images/animat-search-color.gif" height="30" width="30"><p style="display : inline;font-size:0.6em">< refresh </p></h4>
+    </form>
+    <div class="well">
+      <p><a href="<%= mossUrl %>" target="_blank"><%= mossUrl %></a></p>
+    </div>
+    <h4>Recommended Code</h4>
+    <div class="well">
+		<p><a href="<%= RecommendCode[0].indentationURL %>" target="_blank">Indentation		: <%= RecommendCode[0].indentationURL %></a></p>
+                <p><a href="<%= RecommendCode[0].namingURL %>" target="_blank">Naming		: <%= RecommendCode[0].indentationURL %></a></p>
+                <p><a href="<%= RecommendCode[0].commentURL %>" target="_blank">Comment		: <%= RecommendCode[0].commentURL %></a></p>
+                <p><a href="<%= RecommendCode[0].whitespaceURL %>" target="_blank">WhiteSpace		: <%= RecommendCode[0].whitespaceURL %></a></p>
+                <p><a href="<%= RecommendCode[0].codeformatURL %>" target="_blank">CodeFormat		: <%= RecommendCode[0].codeformatURL %></a></p>
+                <p><a href="<%= RecommendCode[0].statementURL %>" target="_blank">Statement		: <%= RecommendCode[0].statementURL %></a></p>
+                <p><a href="<%= RecommendCode[0].functionURL %>" target="_blank">Function		: <%= RecommendCode[0].functionURL %></a></p>
+                <p><a href="<%= RecommendCode[0].classURL %>" target="_blank">Class		: <%= RecommendCode[0].classURL %></a></p>
+                <p><a href="<%= RecommendCode[0].moduleURL %>" target="_blank">Module		: <%= RecommendCode[0].moduleURL %></a></p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <h4>Issues</h4>
+            <div class="well">
+              <p style="text-decoration:underline;color:#C6C6C6">Indentation : <%= IndenCount %></p>
+              <p style="text-decoration:underline;color:#C6C6C6">Naming : <%= NamingCount %></p>
+              <p style="text-decoration:underline;color:#C6C6C6">Comment : <%= CommentCount %></p>
+              <p style="text-decoration:underline;color:#C6C6C6">WhiteSpace : <%= WhiteSpaceCount %></p>
+              <p style="text-decoration:underline;color:#C6C6C6">CodeFormat : <%= CodeFormatCount %></p>
+              <p style="text-decoration:underline;color:#C6C6C6">Statement : <%= StatementCount %></p>
+              <p style="text-decoration:underline;color:#C6C6C6">Function : <%= FunctionCount %></p>
+              <p style="text-decoration:underline;color:#C6C6C6">Class : <%= ClassCount %></p>
+              <p style="text-decoration:underline;color:#C6C6C6">Module : <%= ModuleCount %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="code" class="tab-pane fade">
+        <h2>Students List</h2>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Student Number</th>
+                <th>Name</th>
+                <th>Issues</th>
+                <th>Git Repository</th>
+              </tr>
+            </thead>
+            <tbody>
+	      <% for(var i=1;i<=StudentListLength;i++) {%>
+              <tr onclick="show_hide_row('hidden_row<%= i %>');">
+                <td><%= i %></td>
+                <td><%= StudentList[i-1].id %></td>
+                <td>홍길동 <%= i %></td>
+                <td><a href="./studentCode.html" target="_blank"><%= StudentList[i-1].cnt %></a></td>
+                <td><a href="<%= StudentList[i-1].url %>" target="_blank"><%= StudentList[i-1].url %></a></td>
+	      </tr>
+	      <tr id="hidden_row<%= i %>" class="hidden_row" style="display: none;">
+	       <td colspan=5>
+		<div class="container show-grid"> 
+                    <div class="row"> 
+                      <pre class="col-md-4" style="height:200px;line-height:0.3em"> 
+                        <h3>Static Information</h3> 
+                        <p>Block 깊이           : <%= StudentList[i-1].blockDepth %></p> 
+                        <p>최대 Block 깊이      : <%= StudentList[i-1].maxBlockDepth %></p> 
+                        <p>Block 개수           : <%= StudentList[i-1].numBlocks %></p> 
+                        <p>글자수                       : <%= StudentList[i-1].numCharacters %></p> 
+                        <p>Class 개수           : <%= StudentList[i-1].numClasses %></p> 
+                        <p>주석 개수                    : <%= StudentList[i-1].numComments %></p> 
+                        <p>Inline 주석 개수     : <%= StudentList[i-1].numCommentsInline %></p> 
+                        <p>함수 개수                    : <%= StudentList[i-1].numFunctions %></p> 
+                        <p>Keyword 개수         : <%= StudentList[i-1].numKeywords %></p> 
+                        <p>Line 개수            : <%= StudentList[i-1].numLines %></p> 
+                        <p>Docstring 개수       : <%= StudentList[i-1].numModuleDocStrings %></p> 
+                        <p>SrcLines 수          : <%= StudentList[i-1].numSrcLines %></p> 
+                        <p>Token 개수           : <%= StudentList[i-1].numTokens %></p> 
+                       </pre> 
+                       <pre class="col-md-4" style="height:200px;line-height:0.3em"> 
+                        <h3>Issues Count </h3> 
+                        <p>Indentation          : <%= StudentList[i-1].IndentationCount %></p> 
+                        <p>Naming                       : <%= StudentList[i-1].NamingCount %> </p> 
+                        <p>Comment              : <%= StudentList[i-1].CommentCount %></p> 
+                        <p>WhiteSpace           : <%= StudentList[i-1].WhiteSpaceCount %></p> 
+                        <p>CodeFormat           : <%= StudentList[i-1].CodeFormatCount %></p> 
+                        <p>Statement            : <%= StudentList[i-1].StatementCount %></p> 
+                        <p>Function                     : <%= StudentList[i-1].FunctionCount %></p> 
+                        <p>Class                        : <%= StudentList[i-1].ClassCount %></p>
+                        <p>Module                       : <%= StudentList[i-1].ModuleCount %></p>
+                       </pre>
+                      <pre class="col-md-4" style="height:200px;line-height:0.3em">
+                        <h3>Complexity </h3>
+                        <h2><%= StudentList[i-1].__main__ %></h2>
+                        <h4>평균 복잡도 : <%= averageComplexity %></h4>
+                       </pre>
+                     </div>
+                 </div>
+		 <pre class="col-md-6" style="display:inline">
+		  <pre class="brush: python" style="overflow-x:scroll"><%=StudentList[i-1].code %></pre>
+		 </pre>
+		 <pre class="col-md-6">
+		  <pre class="brush: python"><%=StudentList[i-1].position %></pre>
+		 </pre>
+ 		</td>
+              </tr>
+	      <% } %>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+     <div id="graph" class="tab-pane fade">
+        <div id="IssueCategoryGraph" style="width:1100px;height:500px;"></div>
+	<div id="IssueSumGraph" style="width:1100px;height:500px;"></div>
+	<div id="ComplexityGraph" style="width:1100px;height:500px;"></div>
+  </div>
+</div>
+</body>
+<script>
+trace1 = {
+  x: [ <%= IndenCount %>,<%= NamingCount %>,<%= CommentCount %>,<%= WhiteSpaceCount %>,<%= CodeFormatCount %>, <%= StatementCount %>, <%= FunctionCount %>,<%= ClassCount %>,<%= ModuleCount %>], 
+  y: ['Indentation','Naming','Comment','WhiteSpace','CodeFormat','Statement','Function','Class','Module'], 
+  name: 'Votes', 
+  orientation: 'h', 
+  type: 'bar', 
+  uid: 'bf3ef1'
+};
+data = [trace1];
+layout = {
+  autosize: true, 
+  height: 500, 
+  margin: {
+    l: 110, 
+    pad: 2
+  }, 
+  showlegend: false, 
+  title: '이슈 종류별 발생 횟수',
+  width: 1100, 
+  xaxis: {
+    autorange: true, 
+    range: [0,100],
+    type: 'linear'
+  }, 
+  yaxis: {
+    autorange: true, 
+    range: [-0.5, 21.5], 
+    title: '이슈 종류', 
+    type: 'category'
+  }
+};
+Plotly.plot('IssueCategoryGraph', {
+  data: data,
+  layout: layout
+});
+
+var trace2 = {
+  x: ['2017-05-11','2017-05-15','2017-05-17','2017-05-18','2017-05-19','2017-05-21','2017-05-22','2017-05-24'],
+  y: [524,454,453,430,398,330,298,253],
+  type: 'scatter'
+};
+
+var data2 = [trace2];
+layout2 = {
+ autosize: true,
+ title: '학생들 날짜별 총 Issue수 '
+};
+Plotly.newPlot('IssueSumGraph', {
+  data: data2,
+  layout: layout2
+});
+
+var trace3 = {
+  x: ['2017-05-11','2017-05-15','2017-05-17','2017-05-18','2017-05-19','2017-05-21','2017-05-22','2017-05-24'],
+  y: [9,8.8,8.5,8,7.4,7.3,7,6.6],
+  type: 'scatter'
+};
+
+var data3 = [trace3];
+layout3 = {
+ autosize: true,
+ title: '학생들 날짜별 평균 복잡도'
+};
+
+Plotly.newPlot('ComplexityGraph',{ 
+  data : data3,
+  layout: layout3
+});
+</script>
+</html>
+
