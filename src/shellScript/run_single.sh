@@ -1,6 +1,8 @@
 #! /bin/bash
 
 ## Input parameter check
+# checked: -gt(A<B), -e: $1이 있는 경우
+# checked: what is ts.sh?
 if [ "$1" == "" ] || [ "$#" -gt "1" ] || [ ! -e $1 ]
 then
         echo "not exist python file or more than one file"
@@ -9,22 +11,29 @@ then
 fi
 
 ## Import error data
+# checked: path
 source /home/kdwhan27/iw_shell/python/error.dat
 
 ## Result save path setup
+# checked: is it Ok to remove -p? because 'result' dir doesn't have parent dir.
+# checked: result is variable?
 mkdir -p result
 
+# checked: what does it mean?
 FILE=result/temp`basename $1 .py`.txt
 FILE2=result/temp`basename $1 .py`2.txt
 FILE3=`basename $1 .py`.json
 
 ## Run python static analysis modules  (pycodestyle, pylint, pymetrics)
+# checked: >: write, >>: append
 sudo pycodestyle $1 --format='%(code)s %(row)d %(col)d' > $FILE
 sudo pylint --msg-template='{msg_id} {line:3d} {column}' --reports=n $1 >> $FILE
 pymetrics -z $1 > $FILE2
 
 ## Classifiy the results 
 IndenCount=0 NamingCount=0 CommentCount=0 WhiteSpaceCount=0 CodeFormatCount=0 StatementCount=0 FunctionCount=0 ClassCount=0 ModuleCount=0
+# checked: duplicate variable, modifying temp variable
+# checked: -a: array
 declare -a temp1
 declare -a temp2
 declare -a temp3
@@ -36,8 +45,12 @@ declare -a temp8
 declare -a temp9
 flag=0;
 
+# checked: while read: read each line
+# checked: code row col: divide each line as code, row, col
+# checked: need to hear what is task
+# checked: modifying using loop
 while read code row col
-do
+do # about $FILE
         for value in "${Indentation[@]}";do
                 if [ "$code" == "$value" ];
                 then
@@ -172,6 +185,7 @@ do
 done<$FILE2
 
 ## Remove temp files
+# checked: why made tmp files?
 rm $FILE
 rm $FILE2
 
@@ -231,6 +245,7 @@ then
 	temp=''
 fi
 
+# checked: modifying using escape sequence to file
 echo -e "\"Indentation\" : {\n\t\"count\":" $IndenCount ',' >> $FILE3
 echo -e "\t\t\"error\":[\n${temp1[@]}]}," >> $FILE3
 echo -e "\"Naming\" : {\n\t\"count\":" $NamingCount ',' >> $FILE3
@@ -252,6 +267,7 @@ echo -e "\t\t\"error\":[\n${temp9[@]}]}" >> $FILE3
 echo "}" >> $FILE3
 
 ## Import json to db
+# checked: usage of cmd
 mongoimport --db test --collection docs --file $FILE3
 rm $FILE3
 
