@@ -45,6 +45,33 @@ router.get('/', function(req, res, next) {
     var issueCollection = db.collection('issueDescription');
 
     var numStudent = 0;
+    /***********************Issue type list
+    Indentation : 0, Naming : 1, Comment : 2, WhiteSpace : 3,
+    CodeFormat : 4, Statement : 5 , Function : 6, Class : 7, Module :8
+    /*****************************/
+    /*************added code : A******************/
+    var issueType = new Array();
+    var issueTypeCount = new Array();
+    issueType[0] = "Indentation"; issueType[1] = "Naming";
+    issueType[2] = "Comment"; issueType[3] = "WhiteSpace";
+    issueType[4] = "CodeFormat"; issueType[5] = "Statement";
+    issueType[6] = "Function"; issueType[7] = "Class";
+    issueType[8] = "Module";
+
+    var recommendIDargForm = new Array()
+	recommendIDargForm[0] = "indentation";
+	recommendIDargForm[1] = "naming";
+	recommendIDargForm[2] = "comment";
+	recommendIDargForm[3] = "whitespace";
+	recommendIDargForm[4] = "codeformat";
+	recommendIDargForm[5] = "statement";
+	recommendIDargForm[6] = "function";
+	recommendIDargForm[7] = "class";
+	recommendIDargForm[8] = "module";
+    for(var i=0; i<issueType.length; i++)
+    	issueTypeCount[i]=0;
+    /**************************/
+    /********Code to be deleted : A***************/
     var indenCnt = 0, 
 	namingCnt = 0, 
 	commentCnt = 0,
@@ -54,6 +81,7 @@ router.get('/', function(req, res, next) {
 	funcCnt = 0, 
 	classCnt = 0, 
 	moduleCnt = 0;
+    /*******************************************/
 	averageComplexity = 0;
     var ErrorCountObj= new Object();
     var StaticInfo = new Array();
@@ -65,7 +93,11 @@ router.get('/', function(req, res, next) {
     var IndividualInfo = new Array();
     var RecommendCode = new Array();
     var recommendID = new Array();
-
+    /**********Added code : B********/
+    for(var i=0;i<issueType.length; i++)
+    	recommendID[issueType[i]] = 0;
+    /********************************/
+    /***********Code to be deleted :B******/
     recommendID['indentationCnt'] = 0;
     recommendID['namingCnt'] = 0;
     recommendID['commentCnt'] = 0;
@@ -75,7 +107,7 @@ router.get('/', function(req, res, next) {
     recommendID['functionCnt'] = 0;
     recommendID['classCnt'] = 0;
     recommendID['moduleCnt'] = 0;
-    
+    /*************************************/
 async.series([
   function(callback){
     docsCollection.find({}).toArray(function(err, result){
@@ -117,7 +149,11 @@ async.series([
 //	  console.log(rsize);
 
 	  StudentList.push(tmp);
-
+	  /**********Added code : C********/
+	  for( var j=0; j<issueTypeCount.length; j++)
+		issueTypeCount[j] +=result[i].issueType[j].count;
+          /********************************/
+          /*********Code to be deleted : C******/
 	  indenCnt += result[i].Indentation.count;
 	  namingCnt += result[i].Naming.count;
 	  commentCnt += result[i].Comment.count;
@@ -127,7 +163,18 @@ async.series([
 	  funcCnt += result[i].Function.count;
 	  classCnt += result[i].Class.count;
 	  moduleCnt += result[i].Module.count;
-	  
+	  /************************************/
+	  /**********Added code : D********/
+	  for(var j=0; j<issueTypeCount.length; j++)
+	  {
+	    if(result[i].issueType[j].count > recommendID[issueType[j]])
+	    {
+	        recommendID[issueType[j]] = result[i].issueType[j].count;
+	        recommendID[recommendIDargForm[j]] = result[i]._id;
+	    }
+	  }	  
+	  /********************************/
+	  /*********Code to be deleted : D********/
 	  if(result[i].Indentation.count > recommendID['indentationCnt']){
 		recommendID['indentationCnt'] = result[i].Indentation.count;
 		recommendID['indentation'] = result[i]._id;
@@ -164,11 +211,26 @@ async.series([
 		recommendID['moduleCnt'] = result[i].Module.count;
 		recommendID['module'] = result[i]._id;
 	  }
-
+	  /****************************************/
 	  var mydocs = new Object();
 	  mydocs.id = result[i]._id;
 	  mydocs.children = new Array();
-
+	  /***********added code : E**********************/
+	  for(var j=0; j<issueTypeCount.length; j++)
+	  {
+	      for(var k=0; k<result[i].issueType[j].count; k++){
+	          if(ErrorCountObj[result[i].issueType[j].error[k].name] == null){
+	              ErrorCountObj[result[i].issueType[j].error[k].name] =0
+	          }
+	          ErrorCountObj[result[i].issueType[j].error[k].name]++;
+	          var myissue = new Object();
+  	          myissue.name = result[i].issueType[j].error[k].name;
+	          myissue.row = result[i].issueType[j].error[k].row;
+	          mydocs.children.push(myissue);
+	      }
+	  }
+	  /**********************************************/
+	  /**************Code to be deleted : E*****************/
 	  for(var j=0; j<result[i].Indentation.count;j++){
 	    if(ErrorCountObj[result[i].Indentation.error[j].name] == null){ErrorCountObj[result[i].Indentation.error[j].name] = 0 }//initialize
 
@@ -250,6 +312,7 @@ async.series([
                 myissue.row = result[i].Module.error[j].row;
                 mydocs.children.push(myissue);
 	  }
+	  /*********************************************************/
 	////////////////////////////////////Code & Issue Position/////////////////////////////////////
 	var tempCode = new Object();
 	mydocs.children.sort(function(a,b){
