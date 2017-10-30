@@ -49,6 +49,8 @@ router.get('/', function(req, res, next) {
     Indentation : 0, Naming : 1, Comment : 2, WhiteSpace : 3,
     CodeFormat : 4, Statement : 5 , Function : 6, Class : 7, Module :8
     /*****************************/
+
+
     /*************added code : A******************/
     var issueType = new Array();
     var issueTypeCount = new Array();
@@ -58,7 +60,7 @@ router.get('/', function(req, res, next) {
     issueType[6] = "Function"; issueType[7] = "Class";
     issueType[8] = "Module";
 
-    var recommendIDargForm = new Array()
+    var recommendIDargForm = new Array();
 	recommendIDargForm[0] = "indentation";
 	recommendIDargForm[1] = "naming";
 	recommendIDargForm[2] = "comment";
@@ -93,6 +95,8 @@ router.get('/', function(req, res, next) {
     var IndividualInfo = new Array();
     var RecommendCode = new Array();
     var recommendID = new Array();
+
+
     /**********Added code : B********/
     for(var i=0;i<issueType.length; i++)
     	recommendID[issueType[i]] = 0;
@@ -118,7 +122,15 @@ async.series([
 	  var tmp = new Object();
 	  
 	  tmp.id = result[i]._id;
+
+
+	  /**********Added code : G********/
+	  for(var j=0; j<issueType.length; j++)
+	  	tmp.cnt += result[i].issueType[j].count;
+	  /********************************/
+	  /***********Code to be deleted :G******/
 	  tmp.cnt = result[i].Indentation.count + result[i].Naming.count + result[i].Comment.count+ result[i].WhiteSpace.count+result[i].CodeFormat.count+result[i].Statement.count+result[i].Function.count+result[i].Class.count+result[i].Module.count;
+	  /*************************************/
 	  tmp.blockDepth = result[i].blockDepth;
 	  tmp.maxBlockDepth = result[i].blockDepth;
 	  tmp.numBlocks = result[i].numBlocks;
@@ -149,6 +161,8 @@ async.series([
 //	  console.log(rsize);
 
 	  StudentList.push(tmp);
+
+
 	  /**********Added code : C********/
 	  for( var j=0; j<issueTypeCount.length; j++)
 		issueTypeCount[j] +=result[i].issueType[j].count;
@@ -164,6 +178,8 @@ async.series([
 	  classCnt += result[i].Class.count;
 	  moduleCnt += result[i].Module.count;
 	  /************************************/
+
+
 	  /**********Added code : D********/
 	  for(var j=0; j<issueTypeCount.length; j++)
 	  {
@@ -215,6 +231,8 @@ async.series([
 	  var mydocs = new Object();
 	  mydocs.id = result[i]._id;
 	  mydocs.children = new Array();
+
+
 	  /***********added code : E**********************/
 	  for(var j=0; j<issueTypeCount.length; j++)
 	  {
@@ -358,49 +376,52 @@ async.series([
 	var tmp = new Object();
 
 	for(var i =0; i < numUrl; i++){
+		/***********added code : F**********************/
+		for(var j=0; j<issueTypeCount.length; j++){
+			if(result[i]._id == recommendID[issueType[j]]){
+				var issueTypeUrl = recommendIDargForm[j] +"URL";
+				tmp.issueTypeUrl = result[i].url;
+			}
+		}
+		/**********************************************/
+		/**************Code to be deleted : F*****************/
+		if(result[i]._id == recommendID['indentation']){
+			tmp.indentationURL = result[i].url;
+		}
+		if(result[i]._id == recommendID['naming']){
+			tmp.namingURL = result[i].url;
+		}
+		if(result[i]._id == recommendID['comment']){
+			tmp.commentURL = result[i].url;
+		}
+		if(result[i]._id == recommendID['whitespace']){
+			tmp.whitespaceURL = result[i].url;
+		}
+		if(result[i]._id == recommendID['codeformat']){
+			tmp.codeformatURL = result[i].url;
+		}
+		if(result[i]._id == recommendID['statement']){
+			tmp.statementURL = result[i].url;
+		}
+		if(result[i]._id == recommendID['function']){
+			tmp.functionURL = result[i].url;
+		}
+		if(result[i]._id == recommendID['class']){
+			tmp.classURL = result[i].url;
+		}
+		if(result[i]._id == recommendID['module']){
+			tmp.moduleURL = result[i].url;
+		}
+		/****************************************************/
+		RecommendCode.push(tmp);
 
-	  if(result[i]._id == recommendID['indentation']){
-		tmp.indentationURL = result[i].url;
-	  }
-
-	  if(result[i]._id == recommendID['naming']){
-		tmp.namingURL = result[i].url;
-	  }
-
-	  if(result[i]._id == recommendID['comment']){
-		tmp.commentURL = result[i].url;
-	  }
-
-	  if(result[i]._id == recommendID['whitespace']){
-		tmp.whitespaceURL = result[i].url;
-	  }
-
-	  if(result[i]._id == recommendID['codeformat']){
-		tmp.codeformatURL = result[i].url;
-	  }
-
-	  if(result[i]._id == recommendID['statement']){
-		tmp.statementURL = result[i].url;
-	  }
-
-	  if(result[i]._id == recommendID['function']){
-		tmp.functionURL = result[i].url;
-	  }
-
-	  if(result[i]._id == recommendID['class']){
-		tmp.classURL = result[i].url;
-	  }
-
-	  if(result[i]._id == recommendID['module']){
-		tmp.moduleURL = result[i].url;
-	  }
-	RecommendCode.push(tmp);	
-	 for(var j = 0; j < numUrl; j++){
- 	    if(_.map(StudentList)[i].id == result[j]._id){
-	     _.map(StudentList)[i].url = result[j].url;
-	     break;
-	   } 
-	  }
+		for(var j = 0; j < numUrl; j++)
+		{
+			if(_.map(StudentList)[i].id == result[j]._id){
+				_.map(StudentList)[i].url = result[j].url;
+		  		break;
+		  	} 
+		}
 	}
 
 	
