@@ -1,0 +1,67 @@
+{
+	"_id": "b.py",
+	"blockDepth": "0",
+	"maxBlockDepth": "4",
+	"numBlocks": "10",
+	"numCharacters": "2038",
+	"numClasses": "0",
+	"numComments": "7",
+	"numCommentsInline": "0",
+	"numFunctions": "1",
+	"numKeywords": "28",
+	"numLines": "64",
+	"numModuleDocStrings": "0",
+	"numSrcLines": "0",
+	"numTokens": "523",
+	"__main__": "5",
+	"code_analyzer": "4",
+	"./homework1//b.py": "45",
+	"indentation": [],
+	"naming": [
+		{
+			"C0103": 4
+		}
+	],
+	"comment": [
+		{
+			"C0111": 2
+		}
+	],
+	"white space": [
+		{
+			"E303": 1
+		}
+	],
+	"code format": [
+		{
+			"E502": 1
+		},
+		{
+			"E128": 1
+		},
+		{
+			"E501": 3
+		},
+		{
+			"C0325": 9
+		},
+		{
+			"C0301": 2
+		}
+	],
+	"statement": [
+		{
+			"W0621": 1
+		},
+		{
+			"W0107": 2
+		}
+	],
+	"function": [],
+	"class": [],
+	"module": [
+		{
+			"W0611": 2
+		}
+	]
+}
