@@ -12,7 +12,7 @@ fi
 
 ## Import error data
 # checked: path
-source /home/kdwhan27/iw_shell/python/error.dat
+source /root/Master/src/shellScript/error.dat
 
 ## Result save path setup
 # checked: is it Ok to remove -p? because 'result' dir doesn't have parent dir.
