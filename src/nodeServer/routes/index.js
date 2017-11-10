@@ -73,17 +73,7 @@ router.get('/', function(req, res, next) {
     for(var i=0; i<issueType.length; i++)
     	issueTypeCount[i]=0;
     /**************************/
-    /********Code to be deleted : A***************/
-    var indenCnt = 0, 
-	namingCnt = 0, 
-	commentCnt = 0,
-	whiteCnt = 0, 
-	formatCnt = 0, 
-	statementCnt = 0, 
-	funcCnt = 0, 
-	classCnt = 0, 
-	moduleCnt = 0;
-    /*******************************************/
+    
 	averageComplexity = 0;
     var ErrorCountObj= new Object();
     var StaticInfo = new Array();
@@ -101,17 +91,7 @@ router.get('/', function(req, res, next) {
     for(var i=0;i<issueType.length; i++)
     	recommendID[issueType[i]] = 0;
     /********************************/
-    /***********Code to be deleted :B******/
-    recommendID['indentationCnt'] = 0;
-    recommendID['namingCnt'] = 0;
-    recommendID['commentCnt'] = 0;
-    recommendID['whitespaceCnt'] = 0;
-    recommendID['codeformatCnt'] = 0;
-    recommendID['statementCnt'] = 0;
-    recommendID['functionCnt'] = 0;
-    recommendID['classCnt'] = 0;
-    recommendID['moduleCnt'] = 0;
-    /*************************************/
+
 async.series([
   function(callback){
     docsCollection.find({}).toArray(function(err, result){
@@ -128,9 +108,6 @@ async.series([
 	  for(var j=0; j<issueType.length; j++)
 	  	tmp.cnt += result[i].issueType[j].count;
 	  /********************************/
-	  /***********Code to be deleted :G******/
-	  tmp.cnt = result[i].Indentation.count + result[i].Naming.count + result[i].Comment.count+ result[i].WhiteSpace.count+result[i].CodeFormat.count+result[i].Statement.count+result[i].Function.count+result[i].Class.count+result[i].Module.count;
-	  /*************************************/
 	  tmp.blockDepth = result[i].blockDepth;
 	  tmp.maxBlockDepth = result[i].blockDepth;
 	  tmp.numBlocks = result[i].numBlocks;
@@ -167,17 +144,6 @@ async.series([
 	  for( var j=0; j<issueTypeCount.length; j++)
 		issueTypeCount[j] +=result[i].issueType[j].count;
           /********************************/
-          /*********Code to be deleted : C******/
-	  indenCnt += result[i].Indentation.count;
-	  namingCnt += result[i].Naming.count;
-	  commentCnt += result[i].Comment.count;
-	  whiteCnt += result[i].WhiteSpace.count;
-	  formatCnt += result[i].CodeFormat.count;
-	  statementCnt += result[i].Statement.count;
-	  funcCnt += result[i].Function.count;
-	  classCnt += result[i].Class.count;
-	  moduleCnt += result[i].Module.count;
-	  /************************************/
 
 
 	  /**********Added code : D********/
@@ -190,44 +156,6 @@ async.series([
 	    }
 	  }	  
 	  /********************************/
-	  /*********Code to be deleted : D********/
-	  if(result[i].Indentation.count > recommendID['indentationCnt']){
-		recommendID['indentationCnt'] = result[i].Indentation.count;
-		recommendID['indentation'] = result[i]._id;
-	  } 
-	  if(result[i].Naming.count > recommendID['namingCnt']){
-		recommendID['namingCnt'] = result[i].Naming.count;
-		recommendID['naming'] = result[i]._id;
-	  }
-	  if(result[i].Comment.count > recommendID['commentCnt']){
-		recommendID['commentCnt'] = result[i].Comment.count;
-		recommendID['comment'] = result[i]._id;
-	  } 
-	  if(result[i].WhiteSpace.count > recommendID['whitespaceCnt']){
-		recommendID['whitespaceCnt'] = result[i].WhiteSpace.count;
-		recommendID['whitespace'] = result[i]._id;
-	  }
-	  if(result[i].CodeFormat.count > recommendID['codeformatCnt']){
-		recommendID['codeformatCnt'] = result[i].CodeFormat.count;
-		recommendID['codeformat'] = result[i]._id;
-	  }
-	  if(result[i].Statement.count > recommendID['statementCnt']){
-		recommendID['statementCnt'] = result[i].Statement.count;
-		recommendID['statement'] = result[i]._id;
-	  }
-	  if(result[i].Function.count > recommendID['functionCnt']){
-		recommendID['functionCnt'] = result[i].Function.count;
-		recommendID['function'] = result[i]._id;
-	  }
-	  if(result[i].Class.count > recommendID['classCnt']){
-		recommendID['classCnt'] = result[i].Class.count;
-		recommendID['class'] = result[i]._id;
-	  }
-	  if(result[i].Module.count > recommendID['moduleCnt']){
-		recommendID['moduleCnt'] = result[i].Module.count;
-		recommendID['module'] = result[i]._id;
-	  }
-	  /****************************************/
 	  var mydocs = new Object();
 	  mydocs.id = result[i]._id;
 	  mydocs.children = new Array();
@@ -248,89 +176,7 @@ async.series([
 	      }
 	  }
 	  /**********************************************/
-	  /**************Code to be deleted : E*****************/
-	  for(var j=0; j<result[i].Indentation.count;j++){
-	    if(ErrorCountObj[result[i].Indentation.error[j].name] == null){ErrorCountObj[result[i].Indentation.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].Indentation.error[j].name]++;
-		var myissue = new Object();
-		myissue.name = result[i].Indentation.error[j].name;
-		myissue.row = result[i].Indentation.error[j].row;
-		mydocs.children.push(myissue);
-	  }
-	  for(var j=0; j<result[i].Naming.count;j++){
-	    if(ErrorCountObj[result[i].Naming.error[j].name] == null){ErrorCountObj[result[i].Naming.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].Naming.error[j].name]++;
-                var myissue = new Object();
-                myissue.name = result[i].Naming.error[j].name;
-                myissue.row = result[i].Naming.error[j].row;
-                mydocs.children.push(myissue);
-	  }
-	  for(var j=0; j<result[i].Comment.count;j++){
-	    if(ErrorCountObj[result[i].Comment.error[j].name] == null){ErrorCountObj[result[i].Comment.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].Comment.error[j].name]++;
-                var myissue = new Object();
-                myissue.name = result[i].Comment.error[j].name;
-                myissue.row = result[i].Comment.error[j].row;
-                mydocs.children.push(myissue);
-	  }
-	  for(var j=0; j<result[i].WhiteSpace.count;j++){
-	    if(ErrorCountObj[result[i].WhiteSpace.error[j].name] == null){ErrorCountObj[result[i].WhiteSpace.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].WhiteSpace.error[j].name]++;
-                var myissue = new Object();
-                myissue.name = result[i].WhiteSpace.error[j].name;
-                myissue.row = result[i].WhiteSpace.error[j].row;
-                mydocs.children.push(myissue);
-	  }
-	  for(var j=0; j<result[i].CodeFormat.count;j++){
-	    if(ErrorCountObj[result[i].CodeFormat.error[j].name] == null){ErrorCountObj[result[i].CodeFormat.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].CodeFormat.error[j].name]++;
-                var myissue = new Object();
-                myissue.name = result[i].CodeFormat.error[j].name;
-                myissue.row = result[i].CodeFormat.error[j].row;
-                mydocs.children.push(myissue);
-	  }
-	  for(var j=0; j<result[i].Statement.count;j++){
-	    if(ErrorCountObj[result[i].Statement.error[j].name] == null){ErrorCountObj[result[i].Statement.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].Statement.error[j].name]++;
-                var myissue = new Object();
-                myissue.name = result[i].Statement.error[j].name;
-                myissue.row = result[i].Statement.error[j].row;
-                mydocs.children.push(myissue);
-	  }
-	  for(var j=0; j<result[i].Function.count;j++){
-	    if(ErrorCountObj[result[i].Function.error[j].name] == null){ErrorCountObj[result[i].Function.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].Function.error[j].name]++;
-                var myissue = new Object();
-                myissue.name = result[i].Function.error[j].name;
-                myissue.row = result[i].Function.error[j].row;
-                mydocs.children.push(myissue);
-	  }
-	  for(var j=0; j<result[i].Class.count;j++){
-	    if(ErrorCountObj[result[i].Class.error[j].name] == null){ErrorCountObj[result[i].Class.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].Class.error[j].name]++;
-                var myissue = new Object();
-                myissue.name = result[i].Class.error[j].name;
-                myissue.row = result[i].Class.error[j].row;
-                mydocs.children.push(myissue);
-	  } 
-	  for(var j=0; j<result[i].Module.count;j++){
-	    if(ErrorCountObj[result[i].Module.error[j].name] == null){ErrorCountObj[result[i].Module.error[j].name] = 0 }//initialize
-
-	    ErrorCountObj[result[i].Module.error[j].name]++;
-                var myissue = new Object();
-                myissue.name = result[i].Module.error[j].name;
-                myissue.row = result[i].Module.error[j].row;
-                mydocs.children.push(myissue);
-	  }
-	  /*********************************************************/
+	  
 	////////////////////////////////////Code & Issue Position/////////////////////////////////////
 	var tempCode = new Object();
 	mydocs.children.sort(function(a,b){
@@ -384,35 +230,6 @@ async.series([
 			}
 		}
 		/**********************************************/
-		/**************Code to be deleted : F*****************/
-		if(result[i]._id == recommendID['indentation']){
-			tmp.indentationURL = result[i].url;
-		}
-		if(result[i]._id == recommendID['naming']){
-			tmp.namingURL = result[i].url;
-		}
-		if(result[i]._id == recommendID['comment']){
-			tmp.commentURL = result[i].url;
-		}
-		if(result[i]._id == recommendID['whitespace']){
-			tmp.whitespaceURL = result[i].url;
-		}
-		if(result[i]._id == recommendID['codeformat']){
-			tmp.codeformatURL = result[i].url;
-		}
-		if(result[i]._id == recommendID['statement']){
-			tmp.statementURL = result[i].url;
-		}
-		if(result[i]._id == recommendID['function']){
-			tmp.functionURL = result[i].url;
-		}
-		if(result[i]._id == recommendID['class']){
-			tmp.classURL = result[i].url;
-		}
-		if(result[i]._id == recommendID['module']){
-			tmp.moduleURL = result[i].url;
-		}
-		/****************************************************/
 		RecommendCode.push(tmp);
 
 		for(var j = 0; j < numUrl; j++)
