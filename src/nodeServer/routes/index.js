@@ -49,7 +49,25 @@ router.get('/', function(req, res, next) {
     Indentation : 0, Naming : 1, Comment : 2, WhiteSpace : 3,
     CodeFormat : 4, Statement : 5 , Function : 6, Class : 7, Module :8
     /*****************************/
+    function Issue(name){
+    	this.name = name;
+    	this.count =0;
+    }
 
+    var issueArray = new Array();
+    issueArray[0] = new Issue("Indentation");issueArray[1] = new Issue("Naming");
+    issueArray[2] = new Issue("Comment");    issueArray[3] = new Issue("WhiteSpace");
+    issueArray[4] = new Issue("CodeFormat"); issueArray[5] = new Issue("Statement");
+    issueArray[6] = new Issue("Function");   issueArray[7] = new Issue("Class");
+    issueArray[8] = new Issue("Module");
+    
+	function recommendID(name){
+    	this.id="";
+    	this.count=0;
+    }
+    recommendIDArray = new Array();
+    for(var i=0; i<issueArray.length;i++)
+    	recommendIDArray[i] = new recommendID();
 
     /*************added code : A******************/
     var issueType = new Array();
@@ -86,10 +104,9 @@ router.get('/', function(req, res, next) {
     var RecommendCode = new Array();
     var recommendID = new Array();
 
-
-    /**********Added code : B********/
-    for(var i=0;i<issueType.length; i++)
-    	recommendID[issueType[i]] = 0;
+    /***new code  : B********/
+    for(var i=0;i<issueArray.length; i++)
+    	recommendIDArray[i].count=0;
     /********************************/
 
 async.series([
@@ -103,10 +120,9 @@ async.series([
 	  
 	  tmp.id = result[i]._id;
 
-
-	  /**********Added code : G********/
-	  for(var j=0; j<issueType.length; j++)
-	  	tmp.cnt += result[i].issueType[j].count;
+	  /******new code : G*************/
+	  for(var j=0; j<issueArray.length; j++)
+	  	tmp.cnt += result[i].issueArray[j].name.count;
 	  /********************************/
 	  tmp.blockDepth = result[i].blockDepth;
 	  tmp.maxBlockDepth = result[i].blockDepth;
@@ -139,41 +155,40 @@ async.series([
 
 	  StudentList.push(tmp);
 
+	  /********* New code : C**********/
+	  for( var j=0; j<issueArray.length; j++)
+	  	issueArray[j].count +=result[i].issueArray[j].name.count;
+	  /********************************/
 
-	  /**********Added code : C********/
-	  for( var j=0; j<issueTypeCount.length; j++)
-		issueTypeCount[j] +=result[i].issueType[j].count;
-          /********************************/
 
-
-	  /**********Added code : D********/
-	  for(var j=0; j<issueTypeCount.length; j++)
-	  {
-	    if(result[i].issueType[j].count > recommendID[issueType[j]])
-	    {
-	        recommendID[issueType[j]] = result[i].issueType[j].count;
-	        recommendID[recommendIDargForm[j]] = result[i]._id;
-	    }
-	  }	  
+      /************New code : D**************/
+      for(var j=0; j<issueArray.length; j++)
+      {
+      	if(result[i].issueArray[j].name.count > recommendIDArray[j].count)
+      	{
+      		recommendIDArray[j].count = result[i].issueArray[i].name.count;
+      		recommendIDArray[j].id = result[i]._id;
+      	}
+      }
 	  /********************************/
 	  var mydocs = new Object();
 	  mydocs.id = result[i]._id;
 	  mydocs.children = new Array();
 
 
-	  /***********added code : E**********************/
-	  for(var j=0; j<issueTypeCount.length; j++)
+	  /***********New code : E ***********************/
+	  for(var j=0; j<issueArray.length; j++)
 	  {
-	      for(var k=0; k<result[i].issueType[j].count; k++){
-	          if(ErrorCountObj[result[i].issueType[j].error[k].name] == null){
-	              ErrorCountObj[result[i].issueType[j].error[k].name] =0
-	          }
-	          ErrorCountObj[result[i].issueType[j].error[k].name]++;
-	          var myissue = new Object();
-  	          myissue.name = result[i].issueType[j].error[k].name;
-	          myissue.row = result[i].issueType[j].error[k].row;
-	          mydocs.children.push(myissue);
-	      }
+	  	for(var k=0; k<result[i].issueArray[j].name.count; k++){
+	  		if(ErrorCountObj[result[i].issueArray[j].name.error[k].name] ==null){
+	  			ErrorCountObj[result[i].issueArray[j].name.error[k].name] =0;
+	  		}
+	  		ErrorCountObj[result[i].issueArray[j].name.error[k].name]++;
+	  		var myissue = new Object();
+	  		myissue.name = result[i].issueArray[j].name.error[k].name;
+	  		myissue.row = result[i].issueArray[j].name.error[k].row;
+	  		mydocs.children.push(myissue);
+	  	}
 	  }
 	  /**********************************************/
 	  
@@ -222,10 +237,11 @@ async.series([
 	var tmp = new Object();
 
 	for(var i =0; i < numUrl; i++){
-		/***********added code : F**********************/
-		for(var j=0; j<issueTypeCount.length; j++){
-			if(result[i]._id == recommendID[issueType[j]]){
-				var issueTypeUrl = recommendIDargForm[j] +"URL";
+
+		/*********New code : F***********************/
+		for(var j=0; j<issueArray.length; j++){
+			if(result[i]._id == recommendIDArray[j].id){
+				var issueTypeUrl = issueArray[j].name.toLowerCase()+"URL";
 				tmp.issueTypeUrl = result[i].url;
 			}
 		}
