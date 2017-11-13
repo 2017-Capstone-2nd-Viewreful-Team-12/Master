@@ -61,36 +61,13 @@ router.get('/', function(req, res, next) {
     issueArray[6] = new Issue("Function");   issueArray[7] = new Issue("Class");
     issueArray[8] = new Issue("Module");
     
-	function recommendID(name){
+	function recommendID(){
     	this.id="";
     	this.count=0;
     }
     recommendIDArray = new Array();
     for(var i=0; i<issueArray.length;i++)
     	recommendIDArray[i] = new recommendID();
-
-    /*************added code : A******************/
-    var issueType = new Array();
-    var issueTypeCount = new Array();
-    issueType[0] = "Indentation"; issueType[1] = "Naming";
-    issueType[2] = "Comment"; issueType[3] = "WhiteSpace";
-    issueType[4] = "CodeFormat"; issueType[5] = "Statement";
-    issueType[6] = "Function"; issueType[7] = "Class";
-    issueType[8] = "Module";
-
-    var recommendIDargForm = new Array();
-	recommendIDargForm[0] = "indentation";
-	recommendIDargForm[1] = "naming";
-	recommendIDargForm[2] = "comment";
-	recommendIDargForm[3] = "whitespace";
-	recommendIDargForm[4] = "codeformat";
-	recommendIDargForm[5] = "statement";
-	recommendIDargForm[6] = "function";
-	recommendIDargForm[7] = "class";
-	recommendIDargForm[8] = "module";
-    for(var i=0; i<issueType.length; i++)
-    	issueTypeCount[i]=0;
-    /**************************/
     
 	averageComplexity = 0;
     var ErrorCountObj= new Object();
@@ -102,7 +79,6 @@ router.get('/', function(req, res, next) {
     var IssueCode = new Array();
     var IndividualInfo = new Array();
     var RecommendCode = new Array();
-    var recommendID = new Array();
 
     /***new code  : B********/
     for(var i=0;i<issueArray.length; i++)
@@ -174,7 +150,6 @@ async.series([
 	  var mydocs = new Object();
 	  mydocs.id = result[i]._id;
 	  mydocs.children = new Array();
-
 
 	  /***********New code : E ***********************/
 	  for(var j=0; j<issueArray.length; j++)
@@ -256,8 +231,6 @@ async.series([
 		  	} 
 		}
 	}
-
-	
 	  
 	callback();
     });  
