@@ -1,0 +1,48 @@
+=== File: homework1/a.py ===
+Module homework1/a.py is missing a module doc string. Detected at line 1
+
+
+Basic Metrics for module homework1/a.py
+---------------------------------------
+
+         []    DocClasses
+         []    DocFunctions
+          0    blockDepth
+          8    maxBlockDepth
+         26    numBlocks
+       3997    numCharacters
+          0    numClasses
+         16    numComments
+          3    numCommentsInline
+          1    numFunctions
+         60    numKeywords
+        114    numLines
+          0    numModuleDocStrings
+          0    numSrcLines
+       1044    numTokens
+
+          0.00 %ClassesHavingDocStrings
+         14.04 %Comments
+          2.63 %CommentsInline
+          0.00 %FunctionsHavingDocStrings
+
+Functions DocString present(+) or missing(-)
+--------------------------------------------
+
+- code_analyzer
+
+
+McCabe Complexity Metric for file homework1/a.py
+-------------------------------------------------
+
+          5    __main__
+         23    code_analyzer
+
+
+COCOMO 2's SLOC Metric for homework1/a.py
+------------------------------------------
+
+         82    homework1/a.py
+
+
+*** Processed 1 module in run ***
