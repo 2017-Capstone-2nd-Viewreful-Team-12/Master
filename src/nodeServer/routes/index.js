@@ -11,7 +11,7 @@ var flag = 0;
 Object.size = function(obj){
 	var size = 0, key;
 	for (key in obj){
-	  if(obj.hasOwnProperty(key)) size++;
+		if(obj.hasOwnProperty(key)) size++;
 	}
 	return size;
 };
@@ -19,19 +19,19 @@ Object.size = function(obj){
 
 /* GET moss url by User Post Request*/
 router.post('/CopyCheck',function(req,res){
-        exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool2/ && ./moss.sh', function(err, out, code) {
+	exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool2/ && ./moss.sh', function(err, out, code) {
 		flag = 0;
-                mossUrl = out;
+		mossUrl = out;
 		res.redirect('/');
-        });
+	});
 })
 router.post('/CopyCheck2',function(req,res){
-        exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool/ && ./moss.sh', function(err, out, code) {
+	exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool/ && ./moss.sh', function(err, out, code) {
 		flag = 1;
-                mossUrl = out;
+		mossUrl = out;
 		console.log(mossUrl)
-                res.redirect('/comp');
-        });
+		res.redirect('/comp');
+	});
 })
 
 /* GET home page. */
@@ -40,11 +40,11 @@ router.get('/', function(req, res, next) {
   dbUrl = 'mongodb://localhost:27017/test'
 
   MongoClient.connect(dbUrl, function(err, db){
-    var docsCollection = db.collection('docs2');
-    var urlsCollection = db.collection('urls2');   
-    var issueCollection = db.collection('issueDescription');
+  	var docsCollection = db.collection('docs2');
+  	var urlsCollection = db.collection('urls2');   
+  	var issueCollection = db.collection('issueDescription');
 
-    var numStudent = 0;
+  	var numStudent = 0;
     /***********************Issue type list
     Indentation : 0, Naming : 1, Comment : 2, WhiteSpace : 3,
     CodeFormat : 4, Statement : 5 , Function : 6, Class : 7, Module :8
@@ -52,6 +52,9 @@ router.get('/', function(req, res, next) {
     function Issue(name){
     	this.name = name;
     	this.count =0;
+    	this.recommendID="";
+    	this.recommendCount=0;
+
     }
 
     var issueArray = new Array();
@@ -61,15 +64,7 @@ router.get('/', function(req, res, next) {
     issueArray[6] = new Issue("Function");   issueArray[7] = new Issue("Class");
     issueArray[8] = new Issue("Module");
     
-	function recommendID(){
-    	this.id="";
-    	this.count=0;
-    }
-    recommendIDArray = new Array();
-    for(var i=0; i<issueArray.length;i++)
-    	recommendIDArray[i] = new recommendID();
-    
-	averageComplexity = 0;
+    averageComplexity = 0;
     var ErrorCountObj= new Object();
     var StaticInfo = new Array();
     var StudentList = new Array();
@@ -80,93 +75,88 @@ router.get('/', function(req, res, next) {
     var IndividualInfo = new Array();
     var RecommendCode = new Array();
 
-    /***new code  : B********/
-    for(var i=0;i<issueArray.length; i++)
-    	recommendIDArray[i].count=0;
-    /********************************/
+    async.series([
+    	function(callback){
+    		docsCollection.find({}).toArray(function(err, result){
+    			IndividualInfo.push(result);
+    			numStudent = result.length;
 
-async.series([
-  function(callback){
-    docsCollection.find({}).toArray(function(err, result){
-        IndividualInfo.push(result);
-	numStudent = result.length;
+    			for(var i =0; i<numStudent;i++){
+    				var tmp = new Object();
 
-	for(var i =0; i<numStudent;i++){
-	  var tmp = new Object();
-	  
-	  tmp.id = result[i]._id;
+    				tmp.id = result[i]._id;
 
-	  /******new code : G*************/
-	  for(var j=0; j<issueArray.length; j++)
-	  	tmp.cnt += result[i].issueArray[j].name.count;
-	  /********************************/
-	  tmp.blockDepth = result[i].blockDepth;
-	  tmp.maxBlockDepth = result[i].blockDepth;
-	  tmp.numBlocks = result[i].numBlocks;
-	  tmp.numCharacters = result[i].numCharacters;
-	  tmp.numClasses = result[i].numClasses;
-	  tmp.numComments = result[i].numComments;
-	  tmp.numCommentsInline = result[i].numCommentsInline;
-	  tmp.numFunctions = result[i].numFunctions;
-	  tmp.numKeywords = result[i].numKeywords;
-	  tmp.numLines = result[i].numLines;
-	  tmp.numModuleDocStrings = result[i].numModuleDocStrings;
-	  tmp.numSrcLines = result[i].numSrcLines;
-	  tmp.numTokens = result[i].numTokens;
-	  tmp.__main__ = result[i].__main__;
-	  tmp.IndentationCount = result[i].Indentation.count;
-	  tmp.NamingCount = result[i].Naming.count;
-	  tmp.CommentCount = result[i].Comment.count;
-	  tmp.WhiteSpaceCount = result[i].WhiteSpace.count;
-	  tmp.CodeFormatCount = result[i].CodeFormat.count;
-	  tmp.StatementCount = result[i].Statement.count;
-	  tmp.FunctionCount = result[i].Function.count;
-	  tmp.ClassCount = result[i].Class.count;
-	  tmp.ModuleCount = result[i].Module.count;
+    				/******new code : G*************/
+    				for(var j=0; j<issueArray.length; j++)
+    					tmp.cnt += result[i].issueArray[j].name.count;
+    				/********************************/
+    				tmp.blockDepth = result[i].blockDepth;
+    				tmp.maxBlockDepth = result[i].blockDepth;
+    				tmp.numBlocks = result[i].numBlocks;
+    				tmp.numCharacters = result[i].numCharacters;
+    				tmp.numClasses = result[i].numClasses;
+    				tmp.numComments = result[i].numComments;
+    				tmp.numCommentsInline = result[i].numCommentsInline;
+    				tmp.numFunctions = result[i].numFunctions;
+    				tmp.numKeywords = result[i].numKeywords;
+    				tmp.numLines = result[i].numLines;
+    				tmp.numModuleDocStrings = result[i].numModuleDocStrings;
+    				tmp.numSrcLines = result[i].numSrcLines;
+    				tmp.numTokens = result[i].numTokens;
+    				tmp.__main__ = result[i].__main__;
+    				tmp.IndentationCount = result[i].Indentation.count;
+    				tmp.NamingCount = result[i].Naming.count;
+    				tmp.CommentCount = result[i].Comment.count;
+    				tmp.WhiteSpaceCount = result[i].WhiteSpace.count;
+    				tmp.CodeFormatCount = result[i].CodeFormat.count;
+    				tmp.StatementCount = result[i].Statement.count;
+    				tmp.FunctionCount = result[i].Function.count;
+    				tmp.ClassCount = result[i].Class.count;
+    				tmp.ModuleCount = result[i].Module.count;
 
 	  //function is dynamic.
 //	  console.log(tmp);
-	  var rsize = Object.size(result[i]);
+var rsize = Object.size(result[i]);
 //	  console.log(rsize);
 
-	  StudentList.push(tmp);
+StudentList.push(tmp);
 
-	  /********* New code : C**********/
-	  for( var j=0; j<issueArray.length; j++)
-	  	issueArray[j].count +=result[i].issueArray[j].name.count;
-	  /********************************/
+/********* New code : C**********/
+for( var j=0; j<issueArray.length; j++)
+	issueArray[j].count +=result[i].issueArray[j].name.count;
+/********************************/
 
+/************New code : D**************/
+for(var j=0; j<issueArray.length; j++)
+{
+	if(result[i].issueArray[j].name.count > issueArray[j].recommendCount)
+	{
+		issueArray[j].recommendCount = result[i].issueArray[i].name.count;
+		issueArray[j].recommendID = result[i]._id;
+	}
+}
+/********************************/
 
-      /************New code : D**************/
-      for(var j=0; j<issueArray.length; j++)
-      {
-      	if(result[i].issueArray[j].name.count > recommendIDArray[j].count)
-      	{
-      		recommendIDArray[j].count = result[i].issueArray[i].name.count;
-      		recommendIDArray[j].id = result[i]._id;
-      	}
-      }
-	  /********************************/
-	  var mydocs = new Object();
-	  mydocs.id = result[i]._id;
-	  mydocs.children = new Array();
+var mydocs = new Object();
+mydocs.id = result[i]._id;
+mydocs.children = new Array();
 
-	  /***********New code : E ***********************/
-	  for(var j=0; j<issueArray.length; j++)
-	  {
-	  	for(var k=0; k<result[i].issueArray[j].name.count; k++){
-	  		if(ErrorCountObj[result[i].issueArray[j].name.error[k].name] ==null){
-	  			ErrorCountObj[result[i].issueArray[j].name.error[k].name] =0;
-	  		}
-	  		ErrorCountObj[result[i].issueArray[j].name.error[k].name]++;
-	  		var myissue = new Object();
-	  		myissue.name = result[i].issueArray[j].name.error[k].name;
-	  		myissue.row = result[i].issueArray[j].name.error[k].row;
-	  		mydocs.children.push(myissue);
-	  	}
-	  }
-	  /**********************************************/
-	  
+/***********New code : E ***********************/
+for(var j=0; j<issueArray.length; j++)
+{
+	for(var k=0; k<result[i].issueArray[j].name.count; k++){
+		if(ErrorCountObj[result[i].issueArray[j].name.error[k].name] ==null){
+			ErrorCountObj[result[i].issueArray[j].name.error[k].name] =0;
+		}
+		ErrorCountObj[result[i].issueArray[j].name.error[k].name]++;
+		var myissue = new Object();
+		myissue.name = result[i].issueArray[j].name.error[k].name;
+		myissue.row = result[i].issueArray[j].name.error[k].row;
+		mydocs.children.push(myissue);
+	}
+}
+/**********************************************/
+
 	////////////////////////////////////Code & Issue Position/////////////////////////////////////
 	var tempCode = new Object();
 	mydocs.children.sort(function(a,b){
@@ -179,7 +169,7 @@ async.series([
 	for(var j =0; j<mydocs.children.length; j++){
 		if(flag != mydocs.children[j].row){
 			for(var k=1; k<=mydocs.children[j].row - flag; k++){tempCode.position += '.\n';}
-			flag = mydocs.children[j].row;
+				flag = mydocs.children[j].row;
 		}
 		tempCode.position =tempCode.position + mydocs.children[j].name + ',';
 	}
@@ -190,92 +180,91 @@ async.series([
 	StudentCode.push(tempCode);
 	///////////////////////////////////////////////////////////////////////////////////////////////
 
+}
+var tempSum=0;
+for(var i =0; i < result.length; i++){
+	tempSum += _.map(StudentList)[i].__main__;
+	for(var j = 0; j < result.length; j++){
+		if(_.map(StudentList)[i].id == _.map(StudentCode)[j].id){
+			_.map(StudentList)[i].code = _.map(StudentCode)[j].code;
+			_.map(StudentList)[i].position = _.map(StudentCode)[j].position;
+			break;
+		}
 	}
-	var tempSum=0;
-	for(var i =0; i < result.length; i++){
-	 tempSum += _.map(StudentList)[i].__main__;
-         for(var j = 0; j < result.length; j++){
-          if(_.map(StudentList)[i].id == _.map(StudentCode)[j].id){
-           _.map(StudentList)[i].code = _.map(StudentCode)[j].code;
-	   _.map(StudentList)[i].position = _.map(StudentCode)[j].position;
-           break;
-          }
-         }
-        }
-	averageComplexity = tempSum/result.length;
-	callback();	
+}
+averageComplexity = tempSum/result.length;
+callback();	
     });//docs.find end
   },//first callback end
   function(callback){
-    urlsCollection.find({}).toArray(function(err,result){
-	var numUrl = result.length;
-	var tmp = new Object();
+  	urlsCollection.find({}).toArray(function(err,result){
+  		var numUrl = result.length;
+  		var tmp = new Object();
 
-	for(var i =0; i < numUrl; i++){
+  		for(var i =0; i < numUrl; i++){
+  			/*********New code : F***********************/
+  			for(var j=0; j<issueArray.length; j++){
+  				if(result[i]._id == issueArray[j].recommendID){
+  					var issueTypeUrl = issueArray[j].name.toLowerCase()+"URL";
+  					tmp.issueTypeUrl = result[i].url;
+  				}
+  			}
+  			/**********************************************/
+  			RecommendCode.push(tmp);
 
-		/*********New code : F***********************/
-		for(var j=0; j<issueArray.length; j++){
-			if(result[i]._id == recommendIDArray[j].id){
-				var issueTypeUrl = issueArray[j].name.toLowerCase()+"URL";
-				tmp.issueTypeUrl = result[i].url;
-			}
-		}
-		/**********************************************/
-		RecommendCode.push(tmp);
+  			for(var j = 0; j < numUrl; j++)
+  			{
+  				if(_.map(StudentList)[i].id == result[j]._id){
+  					_.map(StudentList)[i].url = result[j].url;
+  					break;
+  				} 
+  			}
+  		}
 
-		for(var j = 0; j < numUrl; j++)
-		{
-			if(_.map(StudentList)[i].id == result[j]._id){
-				_.map(StudentList)[i].url = result[j].url;
-		  		break;
-		  	} 
-		}
-	}
-	  
-	callback();
-    });  
+  		callback();
+  	});  
   },//second callback end  
   function(callback){
-    issueCollection.find({}).toArray(function(err,result){
-	for(var i =0; i<Object.keys(ErrorCountObj).length;i++){
-		var keys = Object.keys(ErrorCountObj);		
-		var tmp = new Object();
-		tmp.id = keys[i];
-		tmp.count = Object.values(ErrorCountObj)[i];
-		tmp.korean = _.values(result[0][keys[i]])[1];
-		IssueCode.push(tmp);	
-		
-	}
-	callback();
-    });
+  	issueCollection.find({}).toArray(function(err,result){
+  		for(var i =0; i<Object.keys(ErrorCountObj).length;i++){
+  			var keys = Object.keys(ErrorCountObj);		
+  			var tmp = new Object();
+  			tmp.id = keys[i];
+  			tmp.count = Object.values(ErrorCountObj)[i];
+  			tmp.korean = _.values(result[0][keys[i]])[1];
+  			IssueCode.push(tmp);	
+
+  		}
+  		callback();
+  	});
 
   }//third callback end
 ], //task end
 
 function(err){
-    if(err) console.log(err);
-    StudentList.sort(function(a,b){
-	return a.cnt > b.cnt ? -1 : a.cnt < b.cnt ? 1 : 0 ;
-    });
+	if(err) console.log(err);
+	StudentList.sort(function(a,b){
+		return a.cnt > b.cnt ? -1 : a.cnt < b.cnt ? 1 : 0 ;
+	});
 	console.log('here');
-    res.render('home',{
-	IndenCount:indenCnt, 
-	NamingCount:namingCnt, 
-	CommentCount:commentCnt, 
-	WhiteSpaceCount:whiteCnt, 
-	CodeFormatCount:formatCnt, 
-	StatementCount:statementCnt, 
-	FunctionCount:funcCnt, 
-	ClassCount:classCnt, 
-	ModuleCount:moduleCnt,
-	FilterArray:IssueCode,FilterArrayLength:Object.keys(ErrorCountObj).length, 
-	StudentList:StudentList,StudentListLength:Object.keys(StudentList).length,
-	UrlList:UrlList,
-	IndividualInfo:IndividualInfo,
-	mossUrl:mossUrl,
-	RecommendCode:RecommendCode,
-	averageComplexity:averageComplexity
-    });
+	res.render('home',{
+		IndenCount:indenCnt, 
+		NamingCount:namingCnt, 
+		CommentCount:commentCnt, 
+		WhiteSpaceCount:whiteCnt, 
+		CodeFormatCount:formatCnt, 
+		StatementCount:statementCnt, 
+		FunctionCount:funcCnt, 
+		ClassCount:classCnt, 
+		ModuleCount:moduleCnt,
+		FilterArray:IssueCode,FilterArrayLength:Object.keys(ErrorCountObj).length, 
+		StudentList:StudentList,StudentListLength:Object.keys(StudentList).length,
+		UrlList:UrlList,
+		IndividualInfo:IndividualInfo,
+		mossUrl:mossUrl,
+		RecommendCode:RecommendCode,
+		averageComplexity:averageComplexity
+	});
   });//async end
 
   });//connect end
