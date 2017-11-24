@@ -16,12 +16,6 @@ class CodeAnalyzer:
         if (not os.path.isdir(RESULT_DIR)):
             os.mkdir(RESULT_DIR)
 
-        # variable initialization
-        self.src_path = ''
-        self.src_name = ''
-        self.res_src_path = ''
-        self.out_file_name = ''
-
         # import error data
         self.errs_dict = OrderedDict()
         with open(ERR_DATA_PATH, 'r') as f:
@@ -34,14 +28,20 @@ class CodeAnalyzer:
 
     def execute_cmd(self, cmd):
         os.system(cmd)
-        pass
 
-    def run_pycodestyle_pylint(self):
+    def analyze(self, src_path, src_name):
+        # temp file to store semi-result about python tools
+        self.src_path = os.path.join(src_path, src_name)
+        self.src_name = src_name
+        self.res_src_path = os.path.join(RESULT_DIR, src_name)
+        self.out_file_name = self.res_src_path + '.txt'
+
+        # run python static analysis tools (pycodestyle, pylint)
         self.execute_cmd('pycodestyle {_file} --format="%(code)s %(row)d %(col)d" > {_outfile}'.format(_file=self.src_path, _outfile=self.out_file_name))
 
         self.execute_cmd('pylint --msg-template="{{msg_id}} {{line:3d}} {{column}}" --reports=n {_file} >> {_outfile}'.format(_file=self.src_path, _outfile=self.out_file_name))
 
-        # analyze the result
+        # analysis the result
         self.codestyle_lint_json = OrderedDict()
         for rule in ANALYSIS_RULES:
             self.codestyle_lint_json[rule] = list()
@@ -65,9 +65,7 @@ class CodeAnalyzer:
                     else:
                         continue
                     break
-        return self.codestyle_lint_json
 
-    def run_pymetrics(self):
         # run python static analysis tool (pymetrics)
         self.execute_cmd('pymetrics -z {_file} > {_outfile}'.format(_file=self.src_path, _outfile=self.out_file_name))
 
@@ -83,18 +81,7 @@ class CodeAnalyzer:
                 if (reg_ex.match(info[0])):
                     self.metrics_json[info[1]] = info[0]
 
-        return self.metrics_json
-
-    def analyze(self, src_path, src_name):
-        # temp file to store semi-result about python tools
-        self.src_path = os.path.join(src_path, src_name)
-        self.src_name = src_name
-        self.res_src_path = os.path.join(RESULT_DIR, src_name)
-        self.out_file_name = self.res_src_path + '.txt'
-
-        # run python static analysis tools (pycodestyle, pylint)
-        self.result_json = self.run_pymetrics().update(self.run_pycodestyle_pylint())
-
+        self.metrics_json.update(self.codestyle_lint_json)
         with open('{_path}.json'.format(_path=self.res_src_path), 'w', encoding='utf-8') as f:
             json.dump(self.metrics_json, f, ensure_ascii=False, indent='\t')
 
@@ -105,6 +92,7 @@ class CodeAnalyzer:
         os.remove(self.out_file_name)
         os.system('rm metricData.*')
         pass
+
 
 if __name__ == '__main__':
     # check execution argument type
