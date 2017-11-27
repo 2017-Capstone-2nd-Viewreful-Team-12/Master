@@ -5,9 +5,14 @@ var async = require('async');
 var fs = require('fs');
 var exec = require('child_process').exec;
 var _ = require('underscore');
+var path = require('path');
 
+var codePoolDirectory =  '../../../../codePool/';
 var mossUrl = ''
 var flag = 0;
+
+
+
 Object.size = function(obj){
 	var size = 0, key;
 	for (key in obj){
@@ -19,14 +24,14 @@ Object.size = function(obj){
 
 /* GET moss url by User Post Request*/
 router.post('/CopyCheck',function(req,res){
-        exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool2/ && ./moss.sh', function(err, out, code) {
+        exec('cd ' + codePoolDirectory + ' && ./moss.sh', function(err, out, code) {
 		flag = 0;
                 mossUrl = out;
 		res.redirect('/');
         });
 })
 router.post('/CopyCheck2',function(req,res){
-        exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool/ && ./moss.sh', function(err, out, code) {
+        exec('cd ' + codePoolDirectory + ' && ./moss.sh', function(err, out, code) {
 		flag = 1;
                 mossUrl = out;
 		console.log(mossUrl)
@@ -40,9 +45,18 @@ router.get('/', function(req, res, next) {
   dbUrl = 'mongodb://localhost:27017/test'
 
   MongoClient.connect(dbUrl, function(err, db){
-    var docsCollection = db.collection('docs2');
-    var urlsCollection = db.collection('urls2');   
+    var docsCollection = db.collection('docs');
+    var urlsCollection = db.collection('urls');   
     var issueCollection = db.collection('issueDescription');
+
+    var studentCollection = db.collection('student');
+    var professorCollection = db.collection('professor');
+    var problemCollection = db.collection('problem');
+    var lectureCollection = db.collection('lecture');
+    var issueTypeCollection = db.collection('issueType');
+    var analysisToolCollection = db.collection('analysisTool');
+    var resultDynamicCollection = db.collection('analysisResultDynamic');
+    var resultStaticCollection = db.collection('analysisResultStatic');
 
     var numStudent = 0;
     var indenCnt = 0, 
@@ -256,7 +270,7 @@ async.series([
 		return a.row <b.row?-1:a.row>b.row?1:0;
 	});
 	tempCode.id = tmp.id;
-	tempCode.code = fs.readFileSync('./public/codePool2/'+tmp.id+'/'+tmp.id+'.py','utf8');
+	tempCode.code = fs.readFileSync(path.resolve(__dirname, codePoolDirectory + tmp.id + '/' + tmp.id + '.py'),'utf8');
 	tempCode.position = '';	
 	var flag = 1;//flag for row 
 	for(var j =0; j<mydocs.children.length; j++){
@@ -351,7 +365,11 @@ async.series([
 		var keys = Object.keys(ErrorCountObj);		
 		var tmp = new Object();
 		tmp.id = keys[i];
-		tmp.count = Object.values(ErrorCountObj)[i];
+		tmp.count = Object.keys(ErrorCountObj).map(function(key) {
+			return ErrorCountObj[key];
+		})[i];
+//values(ErrorCountObj)[i];
+		//마지막 index 바꾸면 한국어!
 		tmp.korean = _.values(result[0][keys[i]])[1];
 		IssueCode.push(tmp);	
 		
@@ -394,3 +412,4 @@ function(err){
 
 
 module.exports = router;
+
