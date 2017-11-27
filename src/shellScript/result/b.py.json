@@ -1,0 +1,201 @@
+{
+	"_id": "b.py",
+	"blockDepth": "0",
+	"maxBlockDepth": "4",
+	"numBlocks": "10",
+	"numCharacters": "2038",
+	"numClasses": "0",
+	"numComments": "7",
+	"numCommentsInline": "0",
+	"numFunctions": "1",
+	"numKeywords": "28",
+	"numLines": "64",
+	"numModuleDocStrings": "0",
+	"numSrcLines": "0",
+	"numTokens": "523",
+	"__main__": "5",
+	"code_analyzer": "4",
+	"./homework1/b.py": "45",
+	"indentation": {
+		"count": 0,
+		"error": []
+	},
+	"naming": {
+		"count": 4,
+		"error": [
+			{
+				"name": "C0103",
+				"col": "0",
+				"row": "9"
+			},
+			{
+				"name": "C0103",
+				"col": "40",
+				"row": "17"
+			},
+			{
+				"name": "C0103",
+				"col": "4",
+				"row": "53"
+			},
+			{
+				"name": "C0103",
+				"col": "4",
+				"row": "61"
+			}
+		]
+	},
+	"comment": {
+		"count": 2,
+		"error": [
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "1"
+			},
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "13"
+			}
+		]
+	},
+	"white space": {
+		"count": 1,
+		"error": [
+			{
+				"name": "E303",
+				"col": "5",
+				"row": "39"
+			}
+		]
+	},
+	"code format": {
+		"count": 16,
+		"error": [
+			{
+				"name": "E502",
+				"col": "70",
+				"row": "9"
+			},
+			{
+				"name": "E128",
+				"col": "13",
+				"row": "10"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "33"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "35"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "49"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "26"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "33"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "35"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "47"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "48"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "49"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "52"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "56"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "58"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "60"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "63"
+			}
+		]
+	},
+	"statement": {
+		"count": 3,
+		"error": [
+			{
+				"name": "W0621",
+				"col": "4",
+				"row": "33"
+			},
+			{
+				"name": "W0107",
+				"col": "4",
+				"row": "43"
+			},
+			{
+				"name": "W0107",
+				"col": "4",
+				"row": "64"
+			}
+		]
+	},
+	"function": {
+		"count": 0,
+		"error": []
+	},
+	"class": {
+		"count": 0,
+		"error": []
+	},
+	"module": {
+		"count": 2,
+		"error": [
+			{
+				"name": "W0611",
+				"col": "0",
+				"row": "4"
+			},
+			{
+				"name": "W0611",
+				"col": "0",
+				"row": "5"
+			}
+		]
+	}
+}

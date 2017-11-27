@@ -1,0 +1,279 @@
+{
+	"_id": "a.py",
+	"blockDepth": "0",
+	"maxBlockDepth": "8",
+	"numBlocks": "26",
+	"numCharacters": "3997",
+	"numClasses": "0",
+	"numComments": "16",
+	"numCommentsInline": "3",
+	"numFunctions": "1",
+	"numKeywords": "60",
+	"numLines": "114",
+	"numModuleDocStrings": "0",
+	"numSrcLines": "0",
+	"numTokens": "1044",
+	"__main__": "5",
+	"code_analyzer": "23",
+	"./homework1/a.py": "82",
+	"indentation": {
+		"count": 0,
+		"error": []
+	},
+	"naming": {
+		"count": 7,
+		"error": [
+			{
+				"name": "C0103",
+				"col": "0",
+				"row": "9"
+			},
+			{
+				"name": "C0103",
+				"col": "40",
+				"row": "17"
+			},
+			{
+				"name": "C0103",
+				"col": "35",
+				"row": "43"
+			},
+			{
+				"name": "C0103",
+				"col": "35",
+				"row": "69"
+			},
+			{
+				"name": "C0103",
+				"col": "79",
+				"row": "80"
+			},
+			{
+				"name": "C0103",
+				"col": "4",
+				"row": "103"
+			},
+			{
+				"name": "C0103",
+				"col": "4",
+				"row": "111"
+			}
+		]
+	},
+	"comment": {
+		"count": 5,
+		"error": [
+			{
+				"name": "E261",
+				"col": "32",
+				"row": "45"
+			},
+			{
+				"name": "E261",
+				"col": "40",
+				"row": "70"
+			},
+			{
+				"name": "E261",
+				"col": "32",
+				"row": "72"
+			},
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "1"
+			},
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "13"
+			}
+		]
+	},
+	"white space": {
+		"count": 0,
+		"error": []
+	},
+	"code format": {
+		"count": 27,
+		"error": [
+			{
+				"name": "E502",
+				"col": "70",
+				"row": "9"
+			},
+			{
+				"name": "E128",
+				"col": "13",
+				"row": "10"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "33"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "35"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "57"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "64"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "80"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "82"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "86"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "99"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "26"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "33"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "35"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "46"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "51"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "53"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "73"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "76"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "86"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "97"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "98"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "99"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "102"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "106"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "108"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "110"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "113"
+			}
+		]
+	},
+	"statement": {
+		"count": 5,
+		"error": [
+			{
+				"name": "W0621",
+				"col": "20",
+				"row": "50"
+			},
+			{
+				"name": "W0621",
+				"col": "4",
+				"row": "33"
+			},
+			{
+				"name": "W0107",
+				"col": "4",
+				"row": "93"
+			},
+			{
+				"name": "R0912",
+				"col": "0",
+				"row": "13"
+			},
+			{
+				"name": "W0107",
+				"col": "4",
+				"row": "114"
+			}
+		]
+	},
+	"function": {
+		"count": 0,
+		"error": []
+	},
+	"class": {
+		"count": 0,
+		"error": []
+	},
+	"module": {
+		"count": 0,
+		"error": []
+	}
+}

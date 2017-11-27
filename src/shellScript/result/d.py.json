@@ -1,0 +1,323 @@
+{
+	"_id": "d.py",
+	"blockDepth": "0",
+	"maxBlockDepth": "9",
+	"numBlocks": "30",
+	"numCharacters": "4458",
+	"numClasses": "1",
+	"numComments": "16",
+	"numCommentsInline": "3",
+	"numFunctions": "3",
+	"numKeywords": "100",
+	"numLines": "115",
+	"numModuleDocStrings": "0",
+	"numSrcLines": "0",
+	"numTokens": "1132",
+	"CodeAnalyzer.__init__": "4",
+	"CodeAnalyzer.analyze": "20",
+	"CodeAnalyzer.execute_cmd": "1",
+	"__main__": "6",
+	"./homework1/d.py": "81",
+	"indentation": {
+		"count": 0,
+		"error": []
+	},
+	"naming": {
+		"count": 5,
+		"error": [
+			{
+				"name": "C0103",
+				"col": "41",
+				"row": "21"
+			},
+			{
+				"name": "C0103",
+				"col": "46",
+				"row": "49"
+			},
+			{
+				"name": "C0103",
+				"col": "46",
+				"row": "74"
+			},
+			{
+				"name": "C0103",
+				"col": "92",
+				"row": "85"
+			},
+			{
+				"name": "C0103",
+				"col": "4",
+				"row": "104"
+			}
+		]
+	},
+	"comment": {
+		"count": 7,
+		"error": [
+			{
+				"name": "E261",
+				"col": "36",
+				"row": "51"
+			},
+			{
+				"name": "E261",
+				"col": "44",
+				"row": "75"
+			},
+			{
+				"name": "E261",
+				"col": "36",
+				"row": "77"
+			},
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "1"
+			},
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "13"
+			},
+			{
+				"name": "C0111",
+				"col": "4",
+				"row": "29"
+			},
+			{
+				"name": "C0111",
+				"col": "4",
+				"row": "32"
+			}
+		]
+	},
+	"white space": {
+		"count": 1,
+		"error": [
+			{
+				"name": "E302",
+				"col": "1",
+				"row": "13"
+			}
+		]
+	},
+	"code format": {
+		"count": 28,
+		"error": [
+			{
+				"name": "E502",
+				"col": "70",
+				"row": "10"
+			},
+			{
+				"name": "E128",
+				"col": "13",
+				"row": "11"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "40"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "42"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "58"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "59"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "60"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "63"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "70"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "85"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "89"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "101"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "16"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "40"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "42"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "52"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "57"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "59"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "63"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "70"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "78"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "81"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "89"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "99"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "100"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "101"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "109"
+			},
+			{
+				"name": "C1001",
+				"col": "0",
+				"row": "13"
+			}
+		]
+	},
+	"statement": {
+		"count": 4,
+		"error": [
+			{
+				"name": "W0107",
+				"col": "8",
+				"row": "27"
+			},
+			{
+				"name": "W0107",
+				"col": "8",
+				"row": "94"
+			},
+			{
+				"name": "R0912",
+				"col": "4",
+				"row": "32"
+			},
+			{
+				"name": "W0107",
+				"col": "4",
+				"row": "115"
+			}
+		]
+	},
+	"function": {
+		"count": 0,
+		"error": []
+	},
+	"class": {
+		"count": 7,
+		"error": [
+			{
+				"name": "R0201",
+				"col": "4",
+				"row": "29"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "36"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "45"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "34"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "37"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "35"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "72"
+			}
+		]
+	},
+	"module": {
+		"count": 0,
+		"error": []
+	}
+}

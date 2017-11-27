@@ -31,9 +31,9 @@ app.use(session({
 
 // Now could handle following events 
 webhookHandler.on('*', function (event, repo, data) {
-    exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool/ && git clone ' + data.repository.clone_url, function(err, out, code) {
+    exec('cd /home/kdwhan/codePool/ && git clone ' + data.repository.clone_url, function(err, out, code) {
         logger.info('git clone success!!')
-exec('sudo bash /home/kdwhan27/iw_shell/python/run_single.sh /home/kdwhan27/nodeSever/viewreful/public/codePool/' + data.repository.name + '/' + data.repository.name + '.py',function(err,out,code){
+exec('sudo bash /root/Master/src/shellScript/run_single.sh /home/kdwhan/codePool/' + data.repository.name + '/' + data.repository.name + '.py',function(err,out,code){
         logger.info('shell runned!!')
 	console.log(out);
    });
