@@ -19,14 +19,14 @@ Object.size = function(obj){
 
 /* GET moss url by User Post Request*/
 router.post('/CopyCheck',function(req,res){
-        exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool2/ && ./moss.sh', function(err, out, code) {
+        exec('cd /home/kdwhan/codePool/ && ./moss.sh', function(err, out, code) {
 		flag = 0;
                 mossUrl = out;
 		res.redirect('/');
         });
 })
 router.post('/CopyCheck2',function(req,res){
-        exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool/ && ./moss.sh', function(err, out, code) {
+        exec('cd /home/kdwhan/codePool/ && ./moss.sh', function(err, out, code) {
 		flag = 1;
                 mossUrl = out;
 		console.log(mossUrl)
@@ -40,8 +40,8 @@ router.get('/', function(req, res, next) {
   dbUrl = 'mongodb://localhost:27017/test'
 
   MongoClient.connect(dbUrl, function(err, db){
-    var docsCollection = db.collection('docs2');
-    var urlsCollection = db.collection('urls2');   
+    var docsCollection = db.collection('docs');
+    var urlsCollection = db.collection('urls');   
     var issueCollection = db.collection('issueDescription');
 
     var numStudent = 0;
@@ -256,7 +256,7 @@ async.series([
 		return a.row <b.row?-1:a.row>b.row?1:0;
 	});
 	tempCode.id = tmp.id;
-	tempCode.code = fs.readFileSync('./public/codePool2/'+tmp.id+'/'+tmp.id+'.py','utf8');
+	tempCode.code = fs.readFileSync('/home/kdwhan/codePool/'+tmp.id+'/'+tmp.id+'.py','utf8');
 	tempCode.position = '';	
 	var flag = 1;//flag for row 
 	for(var j =0; j<mydocs.children.length; j++){
@@ -351,8 +351,12 @@ async.series([
 		var keys = Object.keys(ErrorCountObj);		
 		var tmp = new Object();
 		tmp.id = keys[i];
-		tmp.count = Object.values(ErrorCountObj)[i];
-		tmp.korean = _.values(result[0][keys[i]])[1];
+		tmp.count = Object.keys(ErrorCountObj).map(function(key) {
+			return ErrorCountObj[key];
+		})[i];
+//values(ErrorCountObj)[i];
+		//마지막 index 바꾸면 한국어!
+		tmp.korean = _.values(result[0][keys[i]])[0];
 		IssueCode.push(tmp);	
 		
 	}
