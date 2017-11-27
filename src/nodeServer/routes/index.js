@@ -49,6 +49,15 @@ router.get('/', function(req, res, next) {
     var urlsCollection = db.collection('urls');   
     var issueCollection = db.collection('issueDescription');
 
+    var studentCollection = db.collection('student');
+    var professorCollection = db.collection('professor');
+    var problemCollection = db.collection('problem');
+    var lectureCollection = db.collection('lecture');
+    var issueTypeCollection = db.collection('issueType');
+    var analysisToolCollection = db.collection('analysisTool');
+    var resultDynamicCollection = db.collection('analysisResultDynamic');
+    var resultStaticCollection = db.collection('analysisResultStatic');
+
     var numStudent = 0;
     var indenCnt = 0, 
 	namingCnt = 0, 
@@ -361,7 +370,7 @@ async.series([
 		})[i];
 //values(ErrorCountObj)[i];
 		//마지막 index 바꾸면 한국어!
-		tmp.korean = _.values(result[0][keys[i]])[0];
+		tmp.korean = _.values(result[0][keys[i]])[1];
 		IssueCode.push(tmp);	
 		
 	}
