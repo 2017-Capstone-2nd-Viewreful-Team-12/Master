@@ -5,9 +5,14 @@ var async = require('async');
 var fs = require('fs');
 var exec = require('child_process').exec;
 var _ = require('underscore');
+var path = require('path');
 
+var codePoolDirectory =  '../../../../codePool/';
 var mossUrl = ''
 var flag = 0;
+
+
+
 Object.size = function(obj){
 	var size = 0, key;
 	for (key in obj){
@@ -19,14 +24,14 @@ Object.size = function(obj){
 
 /* GET moss url by User Post Request*/
 router.post('/CopyCheck',function(req,res){
-        exec('cd /home/kdwhan/codePool/ && ./moss.sh', function(err, out, code) {
+        exec('cd ' + codePoolDirectory + ' && ./moss.sh', function(err, out, code) {
 		flag = 0;
                 mossUrl = out;
 		res.redirect('/');
         });
 })
 router.post('/CopyCheck2',function(req,res){
-        exec('cd /home/kdwhan/codePool/ && ./moss.sh', function(err, out, code) {
+        exec('cd ' + codePoolDirectory + ' && ./moss.sh', function(err, out, code) {
 		flag = 1;
                 mossUrl = out;
 		console.log(mossUrl)
@@ -256,7 +261,7 @@ async.series([
 		return a.row <b.row?-1:a.row>b.row?1:0;
 	});
 	tempCode.id = tmp.id;
-	tempCode.code = fs.readFileSync('/home/kdwhan/codePool/'+tmp.id+'/'+tmp.id+'.py','utf8');
+	tempCode.code = fs.readFileSync(path.resolve(__dirname, codePoolDirectory + tmp.id + '/' + tmp.id + '.py'),'utf8');
 	tempCode.position = '';	
 	var flag = 1;//flag for row 
 	for(var j =0; j<mydocs.children.length; j++){
@@ -398,3 +403,4 @@ function(err){
 
 
 module.exports = router;
+

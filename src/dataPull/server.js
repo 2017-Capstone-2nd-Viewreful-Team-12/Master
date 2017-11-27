@@ -9,6 +9,10 @@ var session = require('express-session');
 var fs = require("fs");
 var GitHubWebHook = require('express-github-webhook');
 var webhookHandler = GitHubWebHook({path: '/studentsCode', secret: 'gkgkgk'});
+
+
+var codePoolDirectory =  '../../../codePool/';
+
 var MongoClient = require('mongodb').MongoClient;
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -31,9 +35,9 @@ app.use(session({
 
 // Now could handle following events 
 webhookHandler.on('*', function (event, repo, data) {
-    exec('cd /home/kdwhan/codePool/ && git clone ' + data.repository.clone_url, function(err, out, code) {
+    exec('cd ' + codePoolDirectory + ' && git clone ' + data.repository.clone_url, function(err, out, code) {
         logger.info('git clone success!!')
-exec('sudo bash /home/kdwhan/Master/src/shellScript/run_single.sh /home/kdwhan/codePool/' + data.repository.name + '/' + data.repository.name + '.py',function(err,out,code){
+exec('sudo bash ../shellScript/run_single.sh ' + codePoolDirectory + data.repository.name + '/' + data.repository.name + '.py',function(err,out,code){
         logger.info('shell runned!!')
 	console.log(out);
    });
@@ -66,3 +70,4 @@ webhookHandler.on('error', function (err, req, res) {
 });
 logger.info('start server');
 var router = require('./router/main')(app,fs);
+
