@@ -370,7 +370,7 @@ async.series([
 		})[i];
 //values(ErrorCountObj)[i];
 		//마지막 index 바꾸면 한국어!
-		tmp.korean = _.values(result[0][keys[i]])[1];
+		tmp.korean = _.values(result[0][keys[i]])[0];
 		IssueCode.push(tmp);	
 		
 	}
