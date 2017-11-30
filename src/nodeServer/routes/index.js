@@ -248,15 +248,16 @@ function(err){
 	});
 	console.log('here');
 	res.render('home',{
-		IndenCount:indenCnt, 
-		NamingCount:namingCnt, 
-		CommentCount:commentCnt, 
-		WhiteSpaceCount:whiteCnt, 
-		CodeFormatCount:formatCnt, 
-		StatementCount:statementCnt, 
-		FunctionCount:funcCnt, 
-		ClassCount:classCnt, 
-		ModuleCount:moduleCnt,
+		IndenCount:issueArray[0].count, 
+		NamingCount:issueArray[1].count, 
+		CommentCount:issueArray[2].count, 
+		WhiteSpaceCount:issueArray[3].count, 
+		CodeFormatCount:issueArray[4].count, 
+		StatementCount:issueArray[5].count, 
+		FunctionCount:issueArray[6].count, 
+		ClassCount:issueArray[7].count, 
+		ModuleCount:issueArray[8].count,
+		// Need to modify ther render parameter itself.
 		FilterArray:IssueCode,FilterArrayLength:Object.keys(ErrorCountObj).length, 
 		StudentList:StudentList,StudentListLength:Object.keys(StudentList).length,
 		UrlList:UrlList,
