@@ -131,7 +131,7 @@ for(var j=0; j<issueArray.length; j++)
 {
 	if(result[i].issueArray[j].name.count > issueArray[j].recommendCount)
 	{
-		issueArray[j].recommendCount = result[i].issueArray[i].name.count;
+		issueArray[j].recommendCount = result[i].issueArray[j].name.count;
 		issueArray[j].recommendID = result[i]._id;
 	}
 }
