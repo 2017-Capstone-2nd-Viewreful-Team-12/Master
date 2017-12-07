@@ -12,7 +12,7 @@ fi
 
 ## Import error data
 # checked: path
-source /home/kdwhan27/iw_shell/python/error.dat
+source ./error.dat
 
 ## Result save path setup
 # checked: is it Ok to remove -p? because 'result' dir doesn't have parent dir.
@@ -268,7 +268,7 @@ echo "}" >> $FILE3
 
 ## Import json to db
 # checked: usage of cmd
-mongoimport --db test --collection docs --file $FILE3
+mongoimport --jsonArray --db test --collection docs --file $FILE3
 rm $FILE3
 
 rm metricData.*

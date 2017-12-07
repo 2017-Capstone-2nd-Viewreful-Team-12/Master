@@ -5,9 +5,12 @@ var async = require('async');
 var fs = require('fs');
 var exec = require('child_process').exec;
 var _ = require('underscore');
+var path = require('path');
 
+var codePoolDirectory =  '../../../../codePool/';
 var mossUrl = ''
 var flag = 0;
+
 Object.size = function(obj){
 	var size = 0, key;
 	for (key in obj){
@@ -19,19 +22,20 @@ Object.size = function(obj){
 
 /* GET moss url by User Post Request*/
 router.post('/CopyCheck',function(req,res){
-	exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool2/ && ./moss.sh', function(err, out, code) {
-		flag = 0;
-		mossUrl = out;
-		res.redirect('/');
-	});
+  exec('cd ' + codePoolDirectory + ' && ./moss.sh', function(err, out, code) {
+    flag = 0;
+    mossUrl = out;
+    res.redirect('/');
+  });
 })
 router.post('/CopyCheck2',function(req,res){
-	exec('cd /home/kdwhan27/nodeSever/viewreful/public/codePool/ && ./moss.sh', function(err, out, code) {
-		flag = 1;
-		mossUrl = out;
-		console.log(mossUrl)
-		res.redirect('/comp');
-	});
+  exec('cd ' + codePoolDirectory + ' && ./moss.sh', function(err, out, code) {
+
+    flag = 1;
+    mossUrl = out;
+    console.log(mossUrl)
+    res.redirect('/comp');
+  });
 })
 
 /* GET home page. */
@@ -40,10 +44,19 @@ router.get('/', function(req, res, next) {
   dbUrl = 'mongodb://localhost:27017/test'
 
   MongoClient.connect(dbUrl, function(err, db){
+
   	var docsCollection = db.collection('docs2');
   	var urlsCollection = db.collection('urls2');   
   	var issueCollection = db.collection('issueDescription');
 
+    var studentCollection = db.collection('student');
+    var professorCollection = db.collection('professor');
+    var problemCollection = db.collection('problem');
+    var lectureCollection = db.collection('lecture');
+    var issueTypeCollection = db.collection('issueType');
+    var analysisToolCollection = db.collection('analysisTool');
+    var resultDynamicCollection = db.collection('analysisResultDynamic');
+    var resultStaticCollection = db.collection('analysisResultStatic');
   	var numStudent = 0;
     /***********************Issue type list
     Indentation : 0, Naming : 1, Comment : 2, WhiteSpace : 3,
@@ -64,7 +77,7 @@ router.get('/', function(req, res, next) {
     issueArray[6] = new Issue("Function");   issueArray[7] = new Issue("Class");
     issueArray[8] = new Issue("Module");
     
-    averageComplexity = 0;
+    var averageComplexity = 0;
     var ErrorCountObj= new Object();
     var StaticInfo = new Array();
     var StudentList = new Array();
@@ -163,7 +176,7 @@ for(var j=0; j<issueArray.length; j++)
 		return a.row <b.row?-1:a.row>b.row?1:0;
 	});
 	tempCode.id = tmp.id;
-	tempCode.code = fs.readFileSync('./public/codePool2/'+tmp.id+'/'+tmp.id+'.py','utf8');
+	tempCode.code = fs.readFileSync(path.resolve(__dirname, codePoolDirectory + tmp.id + '/' + tmp.id + '.py'),'utf8');
 	tempCode.position = '';	
 	var flag = 1;//flag for row 
 	for(var j =0; j<mydocs.children.length; j++){
@@ -225,18 +238,22 @@ callback();
   	});  
   },//second callback end  
   function(callback){
-  	issueCollection.find({}).toArray(function(err,result){
-  		for(var i =0; i<Object.keys(ErrorCountObj).length;i++){
-  			var keys = Object.keys(ErrorCountObj);		
-  			var tmp = new Object();
-  			tmp.id = keys[i];
-  			tmp.count = Object.values(ErrorCountObj)[i];
-  			tmp.korean = _.values(result[0][keys[i]])[1];
-  			IssueCode.push(tmp);	
-
-  		}
-  		callback();
-  	});
+    issueCollection.find({}).toArray(function(err,result){
+	for(var i =0; i<Object.keys(ErrorCountObj).length;i++){
+		var keys = Object.keys(ErrorCountObj);		
+		var tmp = new Object();
+		tmp.id = keys[i];
+		tmp.count = Object.keys(ErrorCountObj).map(function(key) {
+			return ErrorCountObj[key];
+		})[i];
+//values(ErrorCountObj)[i];
+		//마지막 index 바꾸면 한국어!
+		tmp.korean = _.values(result[0][keys[i]])[0];
+		IssueCode.push(tmp);	
+		
+	}
+	callback();
+    });
 
   }//third callback end
 ], //task end
@@ -274,3 +291,4 @@ function(err){
 
 
 module.exports = router;
+

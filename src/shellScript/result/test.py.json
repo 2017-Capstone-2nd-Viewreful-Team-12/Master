@@ -1,0 +1,64 @@
+{
+	"_id": "test.py",
+	"numBlocks": "1",
+	"numCharacters": "15",
+	"numClasses": "0",
+	"numComments": "0",
+	"numCommentsInline": "0",
+	"numFunctions": "0",
+	"numKeywords": "1",
+	"numLines": "1",
+	"numModuleDocStrings": "0",
+	"numSrcLines": "0",
+	"numTokens": "6",
+	"__main__": "1",
+	"./homework1/test.py": "1",
+	"indentation": {
+		"count": 0,
+		"error": []
+	},
+	"naming": {
+		"count": 0,
+		"error": []
+	},
+	"comment": {
+		"count": 1,
+		"error": [
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "1"
+			}
+		]
+	},
+	"white space": {
+		"count": 0,
+		"error": []
+	},
+	"code format": {
+		"count": 1,
+		"error": [
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "1"
+			}
+		]
+	},
+	"statement": {
+		"count": 0,
+		"error": []
+	},
+	"function": {
+		"count": 0,
+		"error": []
+	},
+	"class": {
+		"count": 0,
+		"error": []
+	},
+	"module": {
+		"count": 0,
+		"error": []
+	}
+}

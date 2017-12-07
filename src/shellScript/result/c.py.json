@@ -1,0 +1,335 @@
+{
+	"_id": "c.py",
+	"blockDepth": "0",
+	"maxBlockDepth": "9",
+	"numBlocks": "32",
+	"numCharacters": "4790",
+	"numClasses": "1",
+	"numComments": "17",
+	"numCommentsInline": "3",
+	"numFunctions": "5",
+	"numKeywords": "114",
+	"numLines": "127",
+	"numModuleDocStrings": "0",
+	"numSrcLines": "0",
+	"numTokens": "1224",
+	"CodeAnalyzer.__init__": "4",
+	"CodeAnalyzer.analyze": "1",
+	"CodeAnalyzer.execute_cmd": "1",
+	"CodeAnalyzer.run_pycodestyle_pylint": "16",
+	"CodeAnalyzer.run_pymetrics": "5",
+	"__main__": "6",
+	"./homework1/c.py": "90",
+	"indentation": {
+		"count": 0,
+		"error": []
+	},
+	"naming": {
+		"count": 5,
+		"error": [
+			{
+				"name": "C0103",
+				"col": "41",
+				"row": "27"
+			},
+			{
+				"name": "C0103",
+				"col": "46",
+				"row": "49"
+			},
+			{
+				"name": "C0103",
+				"col": "46",
+				"row": "76"
+			},
+			{
+				"name": "C0103",
+				"col": "92",
+				"row": "98"
+			},
+			{
+				"name": "C0103",
+				"col": "4",
+				"row": "116"
+			}
+		]
+	},
+	"comment": {
+		"count": 9,
+		"error": [
+			{
+				"name": "E261",
+				"col": "36",
+				"row": "51"
+			},
+			{
+				"name": "E261",
+				"col": "44",
+				"row": "77"
+			},
+			{
+				"name": "E261",
+				"col": "36",
+				"row": "79"
+			},
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "1"
+			},
+			{
+				"name": "C0111",
+				"col": "0",
+				"row": "13"
+			},
+			{
+				"name": "C0111",
+				"col": "4",
+				"row": "35"
+			},
+			{
+				"name": "C0111",
+				"col": "4",
+				"row": "39"
+			},
+			{
+				"name": "C0111",
+				"col": "4",
+				"row": "70"
+			},
+			{
+				"name": "C0111",
+				"col": "4",
+				"row": "88"
+			}
+		]
+	},
+	"white space": {
+		"count": 2,
+		"error": [
+			{
+				"name": "E302",
+				"col": "1",
+				"row": "13"
+			},
+			{
+				"name": "E305",
+				"col": "1",
+				"row": "109"
+			}
+		]
+	},
+	"code format": {
+		"count": 29,
+		"error": [
+			{
+				"name": "E502",
+				"col": "70",
+				"row": "10"
+			},
+			{
+				"name": "E128",
+				"col": "13",
+				"row": "11"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "40"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "42"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "58"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "59"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "60"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "63"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "72"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "96"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "98"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "102"
+			},
+			{
+				"name": "E501",
+				"col": "80",
+				"row": "113"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "16"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "40"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "42"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "52"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "57"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "59"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "63"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "72"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "80"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "83"
+			},
+			{
+				"name": "C0301",
+				"col": "0",
+				"row": "102"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "111"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "112"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "113"
+			},
+			{
+				"name": "C0325",
+				"col": "0",
+				"row": "121"
+			},
+			{
+				"name": "C1001",
+				"col": "0",
+				"row": "13"
+			}
+		]
+	},
+	"statement": {
+		"count": 4,
+		"error": [
+			{
+				"name": "W0107",
+				"col": "8",
+				"row": "33"
+			},
+			{
+				"name": "W0107",
+				"col": "8",
+				"row": "37"
+			},
+			{
+				"name": "W0107",
+				"col": "8",
+				"row": "107"
+			},
+			{
+				"name": "W0107",
+				"col": "4",
+				"row": "127"
+			}
+		]
+	},
+	"function": {
+		"count": 0,
+		"error": []
+	},
+	"class": {
+		"count": 5,
+		"error": [
+			{
+				"name": "R0902",
+				"col": "0",
+				"row": "13"
+			},
+			{
+				"name": "R0201",
+				"col": "4",
+				"row": "35"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "45"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "74"
+			},
+			{
+				"name": "W0201",
+				"col": "8",
+				"row": "96"
+			}
+		]
+	},
+	"module": {
+		"count": 0,
+		"error": []
+	}
+}

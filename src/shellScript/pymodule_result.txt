@@ -1,0 +1,191 @@
+main.py:10:70: E502 the backslash is redundant between brackets
+main.py:11:13: E128 continuation line under-indented for visual indent
+main.py:34:80: E501 line too long (125 > 79 characters)
+main.py:36:80: E501 line too long (148 > 79 characters)
+main.py:46:32: E261 at least two spaces before inline comment
+main.py:58:80: E501 line too long (99 > 79 characters)
+main.py:65:80: E501 line too long (90 > 79 characters)
+main.py:71:40: E261 at least two spaces before inline comment
+main.py:73:32: E261 at least two spaces before inline comment
+main.py:81:80: E501 line too long (85 > 79 characters)
+main.py:85:80: E501 line too long (102 > 79 characters)
+main.py:97:80: E501 line too long (92 > 79 characters)
+************* Module main
+C: 25, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 34, 0: Line too long (125/100) (line-too-long)
+C: 36, 0: Line too long (148/100) (line-too-long)
+C: 47, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 52, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 54, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 74, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 77, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 85, 0: Line too long (102/100) (line-too-long)
+C: 95, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C: 96, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C: 97, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:100, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:104, 0: Unnecessary parens after 'if' keyword (superfluous-parens)
+C:106, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:108, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:111, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 10, 0: Invalid constant name "analysis_rules" (invalid-name)
+W: 34, 4: Redefining name 'cmd' from outer scope (line 109) (redefined-outer-name)
+C: 14, 0: Missing function docstring (missing-docstring)
+C: 17,37: Invalid variable name "f" (invalid-name)
+C: 44,35: Invalid variable name "f" (invalid-name)
+C: 70,35: Invalid variable name "f" (invalid-name)
+R: 45, 8: Too many nested blocks (6/5) (too-many-nested-blocks)
+C: 81,83: Invalid variable name "f" (invalid-name)
+W: 91, 4: Unnecessary pass statement (unnecessary-pass)
+R: 14, 0: Too many branches (16/12) (too-many-branches)
+C:101, 4: Invalid constant name "codes" (invalid-name)
+C:109, 4: Invalid constant name "cmd" (invalid-name)
+W:112, 4: Unnecessary pass statement (unnecessary-pass)
+
+
+Report
+======
+80 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |1          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |0      |0          |=          |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|method   |0      |0          |=          |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|function |1      |1          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |83     |73.45 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|docstring |1      |0.88  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|comment   |10     |8.85  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|empty     |19     |16.81 |NC       |NC         |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |26     |26       |=          |
++-----------+-------+---------+-----------+
+|refactor   |2      |2        |=          |
++-----------+-------+---------+-----------+
+|warning    |3      |4        |-1.00      |
++-----------+-------+---------+-----------+
+|error      |0      |0        |=          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------------------+------------+
+|message id             |occurrences |
++=======================+============+
+|superfluous-parens     |14          |
++-----------------------+------------+
+|invalid-name           |7           |
++-----------------------+------------+
+|line-too-long          |3           |
++-----------------------+------------+
+|unnecessary-pass       |2           |
++-----------------------+------------+
+|missing-docstring      |2           |
++-----------------------+------------+
+|too-many-nested-blocks |1           |
++-----------------------+------------+
+|too-many-branches      |1           |
++-----------------------+------------+
+|redefined-outer-name   |1           |
++-----------------------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at 6.12/10
+
+=== File: main.py ===
+Module main.py is missing a module doc string. Detected at line 1
+
+
+Basic Metrics for module main.py
+--------------------------------
+
+         []    DocClasses
+         []    DocFunctions
+          0    blockDepth
+          8    maxBlockDepth
+         26    numBlocks
+       3941    numCharacters
+          0    numClasses
+         13    numComments
+          3    numCommentsInline
+          1    numFunctions
+         60    numKeywords
+        112    numLines
+          0    numModuleDocStrings
+          0    numSrcLines
+       1058    numTokens
+
+          0.00 %ClassesHavingDocStrings
+         11.61 %Comments
+          2.68 %CommentsInline
+          0.00 %FunctionsHavingDocStrings
+
+Functions DocString present(+) or missing(-)
+--------------------------------------------
+
+- code_analyzer
+
+
+McCabe Complexity Metric for file main.py
+------------------------------------------
+
+          5    __main__
+         23    code_analyzer
+
+
+COCOMO 2's SLOC Metric for main.py
+-----------------------------------
+
+         83    main.py
+
+
+*** Processed 1 module in run ***
