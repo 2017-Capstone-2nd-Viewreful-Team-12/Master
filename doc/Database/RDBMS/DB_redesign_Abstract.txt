@@ -1,0 +1,14 @@
+1. Professor Table
+2. Lecture Table
+
+3. Problem Table(contains Lecture's key)
+4. Student Table
+5. Analysis Result table
+    5.1 Static( Problem, Student, Sequence, URL, path, sum of errors weights)
+    5.2 Dynamic(key of 5.1, Analysis Tool's id, error type's id, analysis results)
+6. Professor & Lecture Relation Table
+7. Student & Lecture Relation Table
+
+8. Analysis Tool Table
+9. Error Type Table
+    
