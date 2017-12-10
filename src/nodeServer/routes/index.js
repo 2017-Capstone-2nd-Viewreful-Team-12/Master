@@ -101,7 +101,8 @@ router.get('/', function(req, res, next) {
 
     				/******new code : G*************/
     				for(var j=0; j<issueArray.length; j++)
-    					tmp.cnt += result[i].issueArray[j].name.count;
+              tmp.cnt +=eval("result[i]."+issueArray[j].name+".count");
+    					//tmp.cnt += result[i].issueArray[j].name.count;
     				/********************************/
     				tmp.blockDepth = result[i].blockDepth;
     				tmp.maxBlockDepth = result[i].blockDepth;
@@ -135,16 +136,20 @@ var rsize = Object.size(result[i]);
 StudentList.push(tmp);
 
 /********* New code : C**********/
-for( var j=0; j<issueArray.length; j++)
-	issueArray[j].count +=result[i].issueArray[j].name.count;
+for( var j=0; j<issueArray.length; j++){
+  issueArray[j].count += eval("result[i]."+issueArray[j].name+".count");
+}
+  //issueArray[j].count +=result[i].issueArray[j].name.count;
 /********************************/
 
 /************New code : D**************/
 for(var j=0; j<issueArray.length; j++)
 {
-	if(result[i].issueArray[j].name.count > issueArray[j].recommendCount)
+  var tmpnum = eval("result[i]."+issueArray[j].name+".count");
+	if(tmpnum > issueArray[j].recommendCount)
 	{
-		issueArray[j].recommendCount = result[i].issueArray[j].name.count;
+    issueArray[j].recommendCount = eval("result[i]."+issueArray[j].name+".count");
+		//issueArray[j].recommendCount = result[i].issueArray[j].name.count;
 		issueArray[j].recommendID = result[i]._id;
 	}
 }
@@ -157,14 +162,14 @@ mydocs.children = new Array();
 /***********New code : E ***********************/
 for(var j=0; j<issueArray.length; j++)
 {
-	for(var k=0; k<result[i].issueArray[j].name.count; k++){
-		if(ErrorCountObj[result[i].issueArray[j].name.error[k].name] ==null){
-			ErrorCountObj[result[i].issueArray[j].name.error[k].name] =0;
+	for(var k=0; k<eval("result[i]."+issueArray[j].name+".count"); k++){
+		if(ErrorCountObj[eval("result[i]."+issueArray[j].name+".error[k].name")] ==null){
+			ErrorCountObj[eval("result[i]."+issueArray[j].name+".error[k].name")] =0;
 		}
-		ErrorCountObj[result[i].issueArray[j].name.error[k].name]++;
+		ErrorCountObj[eval("result[i]."+issueArray[j].name+".error[k].name")]++;
 		var myissue = new Object();
-		myissue.name = result[i].issueArray[j].name.error[k].name;
-		myissue.row = result[i].issueArray[j].name.error[k].row;
+		myissue.name = eval("result[i]."+issueArray[j].name+".error[k].name");
+		myissue.row = eval("result[i]."+issueArray[j].name+".error[k].row");
 		mydocs.children.push(myissue);
 	}
 }
@@ -218,8 +223,10 @@ callback();
   			/*********New code : F***********************/
   			for(var j=0; j<issueArray.length; j++){
   				if(result[i]._id == issueArray[j].recommendID){
-  					var issueTypeUrl = issueArray[j].name.toLowerCase()+"URL";
-  					tmp.issueTypeUrl = result[i].url;
+            var lowerIssueName = issueArray[j].name;
+  					var issueTypeUrl = lowerIssueName.toLowerCase()+"URL";
+  					eval("tmp."+issueTypeUrl+"= result[i].url");
+            //tmp.issueTypeUrl = result[i].url;
   				}
   			}
   			/**********************************************/
