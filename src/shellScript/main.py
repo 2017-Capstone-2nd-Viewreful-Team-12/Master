@@ -5,8 +5,8 @@ import json
 import re
 
 PATH_SEPERATOR = '/'
-RESULT_DIR = './result'
-ERR_DATA_PATH = './error_py.dat'
+RESULT_DIR = '/home/kdwhan/Master/src/shellScript/result'
+ERR_DATA_PATH = '/home/kdwhan/Master/src/shellScript/error_py.dat'
 ANALYSIS_RULES = ['Indentation', 'Naming', 'Comment', 'WhiteSpace', \
       'CodeFormat', 'Statement', 'Function', 'Class', 'Module']
 
@@ -97,7 +97,7 @@ class CodeAnalyzer:
       json.dump(self.metrics_json, f, ensure_ascii=False, indent='\t')
 
     # import json to DB
-    self.execute_cmd('mongoimport --db test --collection analysisResultDynamic --file ./result/{_filename}.json --jsonArray'.format(_filename=src_name))
+    self.execute_cmd('mongoimport --db test --collection analysisResultDynamic --file /home/kdwhan/Master/src/shellScript/result/{_filename}.json --jsonArray'.format(_filename=src_name))
 
     # remove temp file
     os.remove(self.out_file_name)
@@ -111,14 +111,14 @@ if __name__ == '__main__':
     print('\tpython3 {_program_name} TARGET_CODE_DIR'.format(_program_name=sys.argv[0]))
     sys.exit(1)
 
-  c = CodeAnalyzer()
+  codeAnalyzer = CodeAnalyzer()
   # get file(src code) list of current directory
   for path, _, codes in os.walk(sys.argv[1]):
 
     for code in codes:
       ext = os.path.splitext(code)[-1]
       if (ext == '.py'):
-        c.analyze(path, code)
+        codeAnalyzer.analyze(path, code)
 
   print("It is Main")
   # task: code copy check
