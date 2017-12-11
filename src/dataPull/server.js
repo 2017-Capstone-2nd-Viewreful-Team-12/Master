@@ -37,8 +37,9 @@ app.use(session({
 webhookHandler.on('*', function (event, repo, data) {
     exec('cd ' + codePoolDirectory + ' && git clone ' + data.repository.clone_url, function(err, out, code) {
         logger.info('git clone success!!')
-exec('sudo python3 ../shellScript/main.py ' + codePoolDirectory + data.repository.name + '/',function(err,out,code){
+exec('python3 ../shellScript/main.py ' + codePoolDirectory + data.repository.name,function(err,out,code){
         logger.info('shell runned!!')
+	console.log(err);
 	console.log(out);
    });
     });
