@@ -7,8 +7,8 @@ import re
 PATH_SEPERATOR = '/'
 RESULT_DIR = './result'
 ERR_DATA_PATH = './error_py.dat'
-ANALYSIS_RULES = ['indentation', 'naming', 'comment', 'white space', \
-      'code format', 'statement', 'function', 'class', 'module']
+ANALYSIS_RULES = ['Indentation', 'Naming', 'Comment', 'WhiteSpace', \
+      'CodeFormat', 'Statement', 'Function', 'Class', 'Module']
 
 class CodeAnalyzer:
   def __init__(self):
@@ -70,7 +70,7 @@ class CodeAnalyzer:
     self.execute_cmd('pymetrics -z {_file} > {_outfile}'.format(_file=self.src_path, _outfile=self.out_file_name))
 
     self.metrics_json = OrderedDict()
-    self.metrics_json["_id"] = '{_file}'.format(_file=self.src_name)
+    self.metrics_json["_id"] = '{_file}'.format(_file=self.src_name[:-3])
     with open(self.out_file_name, 'r') as f:
       reg_ex = re.compile('^[0-9]+$') # only digits
       for line in f.readlines():
@@ -97,7 +97,7 @@ class CodeAnalyzer:
       json.dump(self.metrics_json, f, ensure_ascii=False, indent='\t')
 
     # import json to DB
-    # self.execute_cmd('mongoimport --db test --collection docs --file {_filename}.json'.format(_filename=src_name))
+    self.execute_cmd('mongoimport --db test --collection analysisResultDynamic --file ./result/{_filename}.json --jsonArray'.format(_filename=src_name))
 
     # remove temp file
     os.remove(self.out_file_name)
@@ -114,11 +114,13 @@ if __name__ == '__main__':
   c = CodeAnalyzer()
   # get file(src code) list of current directory
   for path, _, codes in os.walk(sys.argv[1]):
+
     for code in codes:
       ext = os.path.splitext(code)[-1]
       if (ext == '.py'):
         c.analyze(path, code)
 
+  print("It is Main")
   # task: code copy check
   # c.execute_cmd('./moss.pl -l python {_dir}/*.py'.format(_dir=sys.argv[1]))
 
