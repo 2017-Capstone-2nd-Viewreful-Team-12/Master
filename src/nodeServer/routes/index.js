@@ -45,8 +45,8 @@ router.get('/', function(req, res, next) {
   dbUrl = 'mongodb://localhost:27017/test'
 
   MongoClient.connect(dbUrl, function(err, db){
-    var docsCollection = db.collection('docs');
-    var urlsCollection = db.collection('urls');   
+    var docsCollection = db.collection('analysisResultDynamic');
+    var urlsCollection = db.collection('analysisResultStatic');   
     var issueCollection = db.collection('issueDescription');
 
     var studentCollection = db.collection('student');
@@ -126,7 +126,7 @@ async.series([
 	  tmp.ModuleCount = result[i].Module.count;
 
 	  //function is dynamic.
-//	  console.log(tmp);
+	  console.log(tmp);
 	  var rsize = Object.size(result[i]);
 //	  console.log(rsize);
 
@@ -347,7 +347,7 @@ async.series([
 	  }
 	RecommendCode.push(tmp);	
 	 for(var j = 0; j < numUrl; j++){
- 	    if(_.map(StudentList)[i].id == result[j]._id){
+ 	    if(_.map(StudentList[i]).id == result[j]._id){
 	     _.map(StudentList)[i].url = result[j].url;
 	     break;
 	   } 
