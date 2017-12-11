@@ -11,6 +11,13 @@ var codePoolDirectory =  '../../../../codePool/';
 var mossUrl = ''
 var flag = 0;
 
+function Issue(name){
+        this.name = name;
+        this.count =0;
+        this.recommendID="";
+        this.recommendCount=0;
+}
+
 Object.size = function(obj){
 	var size = 0, key;
 	for (key in obj){
@@ -45,8 +52,8 @@ router.get('/', function(req, res, next) {
 
   MongoClient.connect(dbUrl, function(err, db){
 
-  	var docsCollection = db.collection('docs2');
-  	var urlsCollection = db.collection('urls2');   
+  	var docsCollection = db.collection('docs');
+  	var urlsCollection = db.collection('urls');   
   	var issueCollection = db.collection('issueDescription');
 
     var studentCollection = db.collection('student');
@@ -62,13 +69,6 @@ router.get('/', function(req, res, next) {
     Indentation : 0, Naming : 1, Comment : 2, WhiteSpace : 3,
     CodeFormat : 4, Statement : 5 , Function : 6, Class : 7, Module :8
     /*****************************/
-    function Issue(name){
-    	this.name = name;
-    	this.count =0;
-    	this.recommendID="";
-    	this.recommendCount=0;
-
-    }
 
     var issueArray = new Array();
     issueArray[0] = new Issue("Indentation");issueArray[1] = new Issue("Naming");
