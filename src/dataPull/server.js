@@ -37,7 +37,7 @@ app.use(session({
 webhookHandler.on('*', function (event, repo, data) {
     exec('cd ' + codePoolDirectory + ' && git clone ' + data.repository.clone_url, function(err, out, code) {
         logger.info('git clone success!!')
-exec('sudo bash ../shellScript/run_single.sh ' + codePoolDirectory + data.repository.name + '/' + data.repository.name + '.py',function(err,out,code){
+exec('sudo python3 ../shellScript/main.py ' + codePoolDirectory + data.repository.name + '/',function(err,out,code){
         logger.info('shell runned!!')
 	console.log(out);
    });
@@ -50,7 +50,7 @@ exec('sudo bash ../shellScript/run_single.sh ' + codePoolDirectory + data.reposi
    
    dbUrl = 'mongodb://localhost:27017/test'
    MongoClient.connect(dbUrl, function(err, db){
-    db.collection('urls').insert({_id:id, url:urlValue});
+    db.collection('analysisResultStatic').insert({_id:id, url:urlValue, dynamicId:id, studentId:id, problemId:1, score:0, totalSequence:1});
    });
 
 });
