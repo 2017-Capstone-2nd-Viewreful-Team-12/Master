@@ -290,7 +290,7 @@ async.series([
 	}
 	var tempSum=0;
 	for(var i =0; i < result.length; i++){
-	 tempSum += _.map(StudentList)[i].__main__;
+	 tempSum += Number(_.map(StudentList)[i].__main__);
          for(var j = 0; j < result.length; j++){
           if(_.map(StudentList)[i].id == _.map(StudentCode)[j].id){
            _.map(StudentList)[i].code = _.map(StudentCode)[j].code;
@@ -300,6 +300,8 @@ async.series([
          }
         }
 	averageComplexity = tempSum/result.length;
+console.log(tempSum);
+console.log("averageComplexity! : " + averageComplexity);
 	callback();	
     });//docs.find end
   },//first callback end
