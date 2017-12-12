@@ -55,8 +55,8 @@ router.get('/', function(req, res, next) {
     var lectureCollection = db.collection('lecture');
     var issueTypeCollection = db.collection('issueType');
     var analysisToolCollection = db.collection('analysisTool');
-    var resultDynamicCollection = db.collection('analysisResultDynamic');
-    var resultStaticCollection = db.collection('analysisResultStatic');
+   // var resultDynamicCollection = db.collection('analysisResultDynamic');
+   // var resultStaticCollection = db.collection('analysisResultStatic');
 
     var numStudent = 0;
     var indenCnt = 0, 
@@ -126,7 +126,7 @@ async.series([
 	  tmp.ModuleCount = result[i].Module.count;
 
 	  //function is dynamic.
-	  console.log(tmp);
+	  //console.log(tmp);
 	  var rsize = Object.size(result[i]);
 //	  console.log(rsize);
 
@@ -306,6 +306,7 @@ async.series([
   function(callback){
     urlsCollection.find({}).toArray(function(err,result){
 	var numUrl = result.length;
+	console.log(result);
 	var tmp = new Object();
 
 	for(var i =0; i < numUrl; i++){
@@ -347,15 +348,13 @@ async.series([
 	  }
 	RecommendCode.push(tmp);	
 	 for(var j = 0; j < numUrl; j++){
- 	    if(_.map(StudentList[i]).id == result[j]._id){
+ 	    if(StudentList[i].id == result[j]._id){
 	     _.map(StudentList)[i].url = result[j].url;
 	     break;
 	   } 
 	  }
 	}
 
-	
-	  
 	callback();
     });  
   },//second callback end  
