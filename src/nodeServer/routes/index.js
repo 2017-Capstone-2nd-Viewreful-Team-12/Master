@@ -371,7 +371,7 @@ console.log("averageComplexity! : " + averageComplexity);
 		})[i];
 //values(ErrorCountObj)[i];
 		//마지막 index 바꾸면 한국어!
-		tmp.korean = _.values(result[0][keys[i]])[0];
+		tmp.korean = _.values(result[0][keys[i]])[1];
 		IssueCode.push(tmp);	
 		
 	}
