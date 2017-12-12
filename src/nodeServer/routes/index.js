@@ -189,7 +189,7 @@ async.series([
 	    ErrorCountObj[result[i].Indentation.error[j].name]++;
 		var myissue = new Object();
 		myissue.name = result[i].Indentation.error[j].name;
-		myissue.row = result[i].Indentation.error[j].row;
+		myissue.row = Number(result[i].Indentation.error[j].row);
 		mydocs.children.push(myissue);
 	  }
 	  for(var j=0; j<result[i].Naming.count;j++){
@@ -198,7 +198,7 @@ async.series([
 	    ErrorCountObj[result[i].Naming.error[j].name]++;
                 var myissue = new Object();
                 myissue.name = result[i].Naming.error[j].name;
-                myissue.row = result[i].Naming.error[j].row;
+                myissue.row = Number(result[i].Naming.error[j].row);
                 mydocs.children.push(myissue);
 	  }
 	  for(var j=0; j<result[i].Comment.count;j++){
@@ -207,7 +207,7 @@ async.series([
 	    ErrorCountObj[result[i].Comment.error[j].name]++;
                 var myissue = new Object();
                 myissue.name = result[i].Comment.error[j].name;
-                myissue.row = result[i].Comment.error[j].row;
+                myissue.row = Number(result[i].Comment.error[j].row);
                 mydocs.children.push(myissue);
 	  }
 	  for(var j=0; j<result[i].WhiteSpace.count;j++){
@@ -216,7 +216,7 @@ async.series([
 	    ErrorCountObj[result[i].WhiteSpace.error[j].name]++;
                 var myissue = new Object();
                 myissue.name = result[i].WhiteSpace.error[j].name;
-                myissue.row = result[i].WhiteSpace.error[j].row;
+                myissue.row = Number(result[i].WhiteSpace.error[j].row);
                 mydocs.children.push(myissue);
 	  }
 	  for(var j=0; j<result[i].CodeFormat.count;j++){
@@ -225,7 +225,7 @@ async.series([
 	    ErrorCountObj[result[i].CodeFormat.error[j].name]++;
                 var myissue = new Object();
                 myissue.name = result[i].CodeFormat.error[j].name;
-                myissue.row = result[i].CodeFormat.error[j].row;
+                myissue.row = Number(result[i].CodeFormat.error[j].row);
                 mydocs.children.push(myissue);
 	  }
 	  for(var j=0; j<result[i].Statement.count;j++){
@@ -234,7 +234,7 @@ async.series([
 	    ErrorCountObj[result[i].Statement.error[j].name]++;
                 var myissue = new Object();
                 myissue.name = result[i].Statement.error[j].name;
-                myissue.row = result[i].Statement.error[j].row;
+                myissue.row = Number(result[i].Statement.error[j].row);
                 mydocs.children.push(myissue);
 	  }
 	  for(var j=0; j<result[i].Function.count;j++){
@@ -243,7 +243,7 @@ async.series([
 	    ErrorCountObj[result[i].Function.error[j].name]++;
                 var myissue = new Object();
                 myissue.name = result[i].Function.error[j].name;
-                myissue.row = result[i].Function.error[j].row;
+                myissue.row = Number(result[i].Function.error[j].row);
                 mydocs.children.push(myissue);
 	  }
 	  for(var j=0; j<result[i].Class.count;j++){
@@ -252,7 +252,7 @@ async.series([
 	    ErrorCountObj[result[i].Class.error[j].name]++;
                 var myissue = new Object();
                 myissue.name = result[i].Class.error[j].name;
-                myissue.row = result[i].Class.error[j].row;
+                myissue.row = Number(result[i].Class.error[j].row);
                 mydocs.children.push(myissue);
 	  } 
 	  for(var j=0; j<result[i].Module.count;j++){
@@ -261,7 +261,7 @@ async.series([
 	    ErrorCountObj[result[i].Module.error[j].name]++;
                 var myissue = new Object();
                 myissue.name = result[i].Module.error[j].name;
-                myissue.row = result[i].Module.error[j].row;
+                myissue.row = Number(result[i].Module.error[j].row);
                 mydocs.children.push(myissue);
 	  }
 	////////////////////////////////////Code & Issue Position/////////////////////////////////////
